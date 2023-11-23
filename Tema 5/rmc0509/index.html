@@ -1,17 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="estilos.css">
-    <script src="script.js" defer></script>
+    <title>Ejercicio 5_9</title>
+    <!-- <link rel="shortcut icon" href="https://pbs.twimg.com/profile_images/1227888337735864323/ECSsFEC7_400x400.jpg" type="image/x-icon"> -->
+    <!-- Simula la pantalla de creación de nuevo usuario de Amazon, 
+        utilizando las características de HTML5 y Javascript.:
+        Utiliza LocalStorage para almacenar el nombre del usuario 
+        la primera vez que se registre, cuando vuelva a entrar deben 
+        de aparecer los datos ya colocados. -->
+
+    <style>
+        body {
+            width: 400px;
+            border: 3px solid #7c7c7c;
+            border-radius: 5px;
+            margin: 10 px;
+            background-color:#ffffff;
+            font-family: sans-serif;
+            margin-top: 10%;
+            margin-left: 35%;
+        }
+        .formulario-header {
+            padding: 16px;
+            text-align: center;
+            background-color: white;
+        }
+        #img{
+            width: 300px;
+        }
+        .formulario-header .title-header {
+            margin: 0;
+            font-size: 18px;
+            color: #000000;
+            background-color: white;
+        }
+        .formulario-body {
+            padding: 16px;
+            background-color: white;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            color: #000000;
+            font-weight: bold;
+            margin-bottom: 1px;
+        }
+        #nombre{
+            width: 90%;
+            padding: 8px;
+            font-size: 14px;
+            border:solid 2px #000000;
+            border-radius: 4px;
+            color: #000000;
+            background-color: #ffffff;
+        }
+        .form-group input[type="text"], .form-group input[type="password"]
+        {
+            width: 90%;
+            padding: 8px;
+            font-size: 14px;
+            border:solid 2px #000000;
+            border-radius: 4px;
+            color: #000000;
+            background-color: #fdfdfd;
+        }
+        
+        .form-group input[type="submit"]{
+            background-color: #121211;
+            color: #000000;
+            text-transform: uppercase;
+        }
+        #submit {
+            width: 90%;
+            text-align: center;
+            margin-left: 3%;
+            font-size: 15px;
+            border: none;
+            padding: 17px 40px;
+            border-radius: 10px;
+            background-color: rgb(255, 230, 2);
+            letter-spacing: 1.5px;
+            transition: all .3s ease;
+            color: #000000;
+            cursor: pointer;
+        }
+        span{
+            text-align: center;
+            font-size: 11px;
+        }
+    </style>
 </head>
 <body>
-    <form id="registerForm">
-        <label for="username">Nombre de usuario:</label>
-        <input type="text" id="username" required>
-        <input type="submit" value="Crear cuenta">
-      </form>
+    <div>
+        <form class="formulario" action="https://hook.eu2.make.com/iep3mnpn8h3lxdlwqj4pdi53q3bl2mag" method="post" enctype="multipart/form-data">
+        <div class="formulario-header">
+            <img src="./img/amazon_es.png" alt="Logo amazon" id="img"><br/>
+            <p class="title-header">Crear cuenta</p>
+        </div>
+        <div class="formulario-body">
+            <div class="form-group">
+                <label class="nombre" for="boletin">Nombre</label>
+                <input type="text" name="nombre" id="nombre" placeholder="Nombre y apellidos">
+            </div>
+            <div class="form-group">
+                <label for="contacto">Número de movil o dirección de correo electrónico</label>
+                <input  class="contacto" type="text" name="date" id="date" required><br><br>
+            </div>
+            <div class="form-group">
+                <label for="contrasena">Contraseña</label>
+                <input  class="contrasena" type="password" name="contrasena" id="contrasena" placeholder="Al menos 6 caracteres" required><br>
+                <span><img src="./img/informacion.png"></span class ="info"><span>La contraseña debe tener 6 caracteres como mínimo.</span><br><br>
+                <label for="contrasena">Confirma tu contraseña</label>
+                <input  class="contrasena" type="password" name="contrasena" id="contrasena"required><br><br>
+            </div>
+            
+            <div class="form-group">
+                <label for="submit"></label><br>
+                <input type="submit" name="submit" id="submit" value="Enviar"><br>
+            </div>
+        </form>
+        </div>
+    </div>
 </body>
 </html>

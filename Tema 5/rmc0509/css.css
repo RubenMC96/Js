@@ -1,0 +1,26 @@
+body {
+  background-color: white;
+}
+
+.container form {
+  text-align: center;
+}
+.container img {
+  display: block;
+  margin: auto;
+}
+.container form input[type="date"] {
+  background-color: #000000;
+}
+
+.container form input[type="text"] {
+  background-color: #000000;
+}
+
+.container form input[type="submit"] {
+  background-color: #000000;
+}
+
+.container form input[type="file"] {
+  background-color: #000000;
+}
