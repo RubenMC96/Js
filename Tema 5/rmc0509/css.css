@@ -1,26 +1,82 @@
 body {
+  width: 400px;
+  border: 3px solid #7c7c7c;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  margin: 10px;
+  background-color: #ffffff;
+  font-family: sans-serif;
+  margin-top: 10%;
+  margin-left: 35%;
+}
+.formulario-header {
+  padding: 16px;
+  text-align: center;
   background-color: white;
 }
-
-.container form {
-  text-align: center;
+#img {
+  width: 300px;
 }
-.container img {
+.formulario-header .title-header {
+  margin: 0;
+  font-size: 18px;
+  color: #000000;
+  background-color: white;
+}
+.formulario-body {
+  padding: 16px;
+  background-color: white;
+}
+.form-group {
+  margin-bottom: 10px;
+}
+.form-group label {
   display: block;
-  margin: auto;
+  font-size: 14px;
+  color: #000000;
+  font-weight: bold;
+  margin-bottom: 1px;
 }
-.container form input[type="date"] {
-  background-color: #000000;
+#nombre {
+  width: 90%;
+  padding: 8px;
+  font-size: 14px;
+  border: solid 2px #000000;
+  border-radius: 4px;
+  color: #000000;
+  background-color: #ffffff;
+}
+.form-group input[type="text"],
+.form-group input[type="password"] {
+  width: 90%;
+  padding: 8px;
+  font-size: 14px;
+  border: solid 2px #000000;
+  border-radius: 4px;
+  color: #000000;
+  background-color: #fdfdfd;
 }
 
-.container form input[type="text"] {
-  background-color: #000000;
+.form-group input[type="submit"] {
+  background-color: #121211;
+  color: #000000;
+  text-transform: uppercase;
 }
-
-.container form input[type="submit"] {
-  background-color: #000000;
+#submit {
+  width: 90%;
+  text-align: center;
+  margin-left: 3%;
+  font-size: 15px;
+  border: none;
+  padding: 17px 40px;
+  border-radius: 10px;
+  background-color: rgb(255, 230, 2);
+  letter-spacing: 1.5px;
+  transition: all 0.3s ease;
+  color: #000000;
+  cursor: pointer;
 }
-
-.container form input[type="file"] {
-  background-color: #000000;
+span {
+  text-align: center;
+  font-size: 11px;
 }
