@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Test de JavaScript</title>
+ <link rel="stylesheet" type="text/css" href="estilos.css">
+ <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- onsubmit="event.preventDefault(); checkAnswers();" -->
+ <form id="formulario">
+    <div class="question">
+       Pregunta 1: ¿Cuál es la primera versión de JavaScript?<br><br>
+       <input type="radio" name="q1" value="correct"> 1.0
+       <input type="radio" name="q1" value="incorrect"> 2.0
+       <input type="radio" name="q1" value="incorrect"> 3.0
+    </div><br>
+    <div class="question">
+       Pregunta 2: ¿Cuál es la última versión de JavaScript?<br><br>
+       <input type="radio" name="q2" value="incorrect"> 1.0
+       <input type="radio" name="q2" value="incorrect"> 2.0
+       <input type="radio" name="q2" value="correct"> 3.0
+    </div><br>
+    <div class="question">
+       Pregunta 3: ¿Cuál es el tipo de dato en JavaScript para almacenar números?<br><br>
+       <input type="radio" name="q3" value="correct"> Number
+       <input type="radio" name="q3" value="incorrect"> String
+       <input type="radio" name="q3" value="incorrect"> Boolean
+    </div><br>
+    <div class="question">
+       Pregunta 4: ¿Cuál es la sintaxis correcta para declarar una variable en JavaScript?<br><br>
+       <input type="radio" name="q4" value="correct"> var nombre;
+       <input type="radio" name="q4" value="incorrect"> var = nombre;
+       <input type="radio" name="q4" value="incorrect"> nombre = var;
+    </div><br>
+    <input type="submit" id="enviar" value="Enviar">
+ </form>
+</body>
+</html>

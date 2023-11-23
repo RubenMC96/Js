@@ -1,0 +1,58 @@
+*{
+    transition: 0.5s;
+}
+body{
+    padding: 0;
+    margin: 0;
+    background-color: bisque;
+    min-height: 100p;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+div{
+    display: inline-block;
+}
+.cara{
+    min-width: 80px;
+    display: flex;
+}
+
+.areaTarjeta, .tarjeta{
+    height: 125px;
+    width: 150px;
+}
+.tarjeta{
+    position: relative;
+    
+    transform-style: preserve-3d;
+}
+.areaTarjeta:hover .tarjeta{
+    transform: rotateY(180deg);
+}
+.cara{
+    position: absolute;
+    backface-visibility: hidden;
+    box-shadow: 0 0 0 5px rgb(201, 192, 209);
+    justify-content: center;
+    align-items: center;
+}
+img{
+    height: 125px;
+    width: 150px;
+}
+.visible{
+    background-color: lightblue;
+}
+.invisible{
+    background-color: white;
+    transform: rotateY(180deg);
+}
+
+.nuevoJuego{
+    background-color: lightblue;
+    padding: 20px;
+    border-radius: 50px;
+    border: solid 5px white;
+}
