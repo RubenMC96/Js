@@ -6,7 +6,7 @@
     <title>Ejercicio 5_9</title>
     <link rel="stylesheet" href="css.css">
     <link rel="stylesheet" href="error.css">
-    <script scr="./script.js" defer></script>
+    <script src="script.js" defer></script>
     <!-- <link rel="shortcut icon" href="https://pbs.twimg.com/profile_images/1227888337735864323/ECSsFEC7_400x400.jpg" type="image/x-icon"> -->
     <!-- Simula la pantalla de creación de nuevo usuario de Amazon, 
         utilizando las características de HTML5 y Javascript.:
@@ -23,24 +23,24 @@
         </div>
         <div class="formulario-body">
             <div class="form-group">
-                <label class="nombre" for="boletin">Nombre</label>
-                <input type="text" name="nombre" id="nombre" placeholder="Nombre y apellidos" pattern="^(.?[A-Za-z\s])" required>
+                <label class="nombre" for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" placeholder="Nombre y apellidos" pattern="[a-zA-Z\s]+" required/>
             </div>
             <div class="form-group">
                 <label for="contacto">Número de movil o dirección de correo electrónico</label>
-                <input  class="contacto" type="text" name="date" id="date" required><br><br>
+                <input  class="contacto" type="text" name="contacto" id="contacto" required><br><br>
             </div>
             <div class="form-group">
-                <label for="contrasena">Contraseña</label>
-                <input  class="contrasena" type="password" name="contrasena" id="contrasena" pattern="^(.?[0-9A-Za-z].{6,}$)" placeholder="Al menos 6 caracteres" required><br>
+                <label for="contrasena1">Contraseña</label>
+                <input  class="contrasena" type="password" name="contrasena" id="contrasena1" pattern="[a-zA-Z\d]{6,}" placeholder="Al menos 6 caracteres" required><br>
                 <span><img src="./img/informacion.png"></span class ="info"><span>La contraseña debe tener 6 caracteres como mínimo.</span><br><br>
-                <label for="contrasena">Confirma tu contraseña</label>
-                <input  class="contrasena" type="password" name="contrasena" id="contrasena" pattern="^(.?[0-9A-Za-z].{6,}$)" required><br><br>
+                <label for="contrasena2">Confirma tu contraseña</label>
+                <input  class="contrasena" type="password" name="contrasena" id="contrasena2" pattern="[a-zA-Z\d]{6,}" required><br><br>
             </div>
             
             <div class="form-group">
-                <label for="submit"></label><br>
-                <input type="submit" name="submit" id="submit" value="Enviar"><br>
+                <label for="enviar"></label><br>
+                <input type="submit" class="enviar" name="submit" id="enviar" value="Enviar"><br>
             </div>
         </form>
 
