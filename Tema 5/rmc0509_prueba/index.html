@@ -24,18 +24,17 @@
             <div class="form-group">
                 <label class="nombre" for="nombre">Nombre</label>
                 <input type="text" name="nombre" id="nombre" placeholder="Nombre y apellidos" pattern="[a-zA-Z\s]+" required/>
-                <span><img src="./img/exclamacion.png" id="avisoNombre" hidden></span>
+                <span><img id="avisoNombre"></span>
             </div>
             <div class="form-group">
                 <label for="contacto">Número de movil o dirección de correo electrónico</label>
                 <input  class="contacto" type="text" name="contacto" id="contacto" required><br><br>
-                <span><img src="./img/exclamacion.png" id="avisoContacto" hidden></span>
+                <span><img id="avisoContacto" hidden></span>
             </div>
             <div class="form-group">
                 <label for="contrasena1">Contraseña</label>
                 <input  class="contrasena" type="password" name="contrasena" id="contrasena1" pattern="[a-zA-Z\d]{6,}" placeholder="Al menos 6 caracteres" required><br>
-                <span><img src="./img/informacion.png" id="aviso">La contraseña debe tener 6 caracteres como mínimo.</span>
-                <span><img src="./img/exclamacion.png" id ="avisoContraseña" hidden></span ><br><br>
+                <span><img id="avisoContrasena"></span>
                 <label for="contrasena2">Confirma tu contraseña</label>
                 <input  class="contrasena" type="password" name="contrasena" id="contrasena2" pattern="[a-zA-Z\d]{6,}" required><br><br>
             </div>
