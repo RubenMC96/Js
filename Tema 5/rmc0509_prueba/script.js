@@ -1,8 +1,20 @@
 document.getElementById("enviar").addEventListener("click", validar, false);
 
+let nombreUsuario = localStorage.getItem("nombreUsuario");
+if (nombreUsuario) {
+  document.getElementById("nombre").value = nombreUsuario;
+}
+
 function validar(e){
 
   if(validarNombre() && validarContacto() && validarContrasena()){
+    
+    localStorage.setItem(
+      "nombreUsuario",
+      document.getElementById("nombre").value
+    ); 
+    alert("El formulario se ha enviado");
+    
     return true;
   }
   else{
@@ -92,3 +104,4 @@ else{
 function limpiarError(elemento){
   elemento.className = "";
 }
+
