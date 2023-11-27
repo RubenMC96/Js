@@ -14,10 +14,10 @@ function validarContacto() {
   let regExtTlf = /^\d{9}$/;
   let regExtEmail = /^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3,4})+$/; //regExt para evaluar un email
 
-  if (regExtTlf.test(contacto) || regExtEmail.test(contacto)) {
+  if (regExtTlf.test(contacto) || regExtEmail.test(email)) {
     return true;
   } else {
-    error(contacto, "Formato no válido", "contacto");
+    error(contacto, "Formato no válido");
   }
 }
 
@@ -25,8 +25,12 @@ function validarNombre() {
   let nombre = document.getElementById("nombre");
 
   if (!nombre.checkValidity()) {
+    if (nombre.validity.valueMissing) {
+      error(nombre, "Introduce un nombre");
+      return false;
+    }
     if (nombre.validity.patternMismatch) {
-      error(nombre, "Solo se admiten letras", "nombre");
+      error(nombre, "Solo se admiten letras");
       return false;
     }
   }
@@ -37,40 +41,10 @@ function validarContrasena() {
   /*Para validar tenemos que evaluar que sean*/
   let contrasena1 = document.getElementById("contrasena1");
   let contrasena2 = document.getElementById("contrasena2");
-
-  if (!contrasena1.checkValidity()) {
-    if (contrasena1.validity.patternMismatch) {
-      error(contrasena1, "No se admiten caracteres especiales", "contrasena");
-      return false;
-    }
-  }
-  if(contrasena1.value.toString() === contrasena2.value.toString()){
-    return true;
-  }
-  else{
-    error(contrasena1, "Las contraseñas no coinciden", "contrasena");
-    return false;
-  }
 }
 
-function error(e, mensaje, tipo) {
-
-  if(tipo == "nombre"){
-    document.getElementById("avisoNombre").innerHTML = mensaje;
-    e.style.display = "block";
-  }
-  else if(tipo == "contacto"){
-    document.getElementById("avisoContacto").innerHTML = mensaje;
-    e.style.display = "block";
-  }
-  else{
-    document.getElementById("avisoContrasena").innerHTML = mensaje;
-    e.style.display = "block";
-    let aviso = document.getElementById("aviso");
-    aviso.style.display = "none";
-  }
-
- 
+function error(e, mensaje) {
+  document.getElementById("aviso").innerHTML = mensaje;
 
   e.className = "error";
   e.focus();
