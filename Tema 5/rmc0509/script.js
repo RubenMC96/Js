@@ -9,6 +9,8 @@ function validar(e){
 
   if(validarNombre() && validarContacto() && validarContrasena()){
     
+    limpiarError(e);
+
     localStorage.setItem(
       "nombreUsuario",
       document.getElementById("nombre").value

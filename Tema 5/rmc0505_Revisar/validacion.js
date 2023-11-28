@@ -1,9 +1,17 @@
-window.addEventListener("load", iniciar);
+document.getElementById("add").addEventListener("click", validar, false);
 
-function iniciar(){
-   
-  document.getElementById("add").addEventListener("click", validar, false);
-}
+
+ function validar(e) {
+    
+    if (validarStrings() && validarAnno() && validarUbicacion()) {
+      return true;
+    } else {
+      e.preventDefault();
+      return false;
+    }
+ }
+
+
  
  //Validacion de Nombre y grupo
  function validarStrings() {
@@ -54,8 +62,11 @@ function iniciar(){
  
  //Modificacion del CSS
  
- function limpiarError(e) {
-   e.className = "";
+ function limpiarError() {
+   var formulario = document.forms[0];
+    for (var i = 0; i < formulario.elements.length; i++) {
+        formulario.elements[i].className = "";
+    }
  }
  
  function error(e, mensaje) {
@@ -64,12 +75,3 @@ function iniciar(){
    e.focus();
  }
 
- function validar(e){
-  if(validarStrings()&& validarAnno()){
-    return true;
-  }
-  else{
-    e.preventDefault();
-    return false;
-  }
- }

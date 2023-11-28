@@ -6,16 +6,8 @@
     <title>Ejercicio 5_5</title>
     <!-- <link rel="stylesheet" href="estilos.css"> -->
     <script src="script.js" type="module" defer></script>
-    <script src="validacion.js"></script>
-    <style>
-      .error{
-        border: solid 1px red;
-      }
-      #nombre{
-        color: aqua;
-      }
-    </style>
-    
+    <script src="validacion.js" defer></script>
+    <link rel="stylesheet" href="estilos.css">
     
   </head>
     <h1>CRUD amacén de discos</h1>
@@ -30,7 +22,7 @@
         </label>
 
         <label for="anno"> Año:
-          <input type="number" id="anno" placeholder="Año de publicación del disco" pattern="\d{4}$" title="El año de publicación tiene que contener 4 dígitos" required/><br/>
+          <input type="number" id="anno" placeholder="Año de publicación del disco" pattern="^[0-9]{4}" title="El año de publicación tiene que contener 4 dígitos" required/><br/>
         </label>
 
         <select id="tipo" placeholder="Seleccione un género">
@@ -50,7 +42,7 @@
           <option value="Prestado">Prestado</option>
           <option value="No_Prestado">No Prestado</option>
         </select><br/>
-        <button type="submit" id="add">Añadir disco</button>
+        <button type="submit" id="enviar">Añadir disco</button>
       </form><br/><br/>
     <span id="aviso"></span>
 
