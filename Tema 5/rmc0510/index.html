@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5_9</title>
+    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="error.css">
+    <script src="script.js" defer></script>
+    <!-- Simula la pantalla de creación de nuevo usuario de Amazon, 
+        utilizando las características de HTML5 y Javascript.:
+        Utiliza LocalStorage para almacenar el nombre del usuario 
+        la primera vez que se registre, cuando vuelva a entrar deben 
+        de aparecer los datos ya colocados. -->
+</head>
+<body>
+    
+        <form class="formulario">
+            <div class="formulario-body">
+                <h3>Accede a tu área de clientes</h3>
+                <p>Elije tu documento</p><br>
+
+                    <input type="radio" class="opcion" name="opcion" id="dni" value="DNI">
+                    <label for="dni">DNI</label><br>
+
+                    <input type="radio" class="opcion" name="opcion" id="pasaporte" value="Pasaporte">
+                    <label for="pasaporte">Pasaporte</label><br>
+                    
+                <p>Introduce el número de documento</p>
+
+                <input type="text" class="form-group" id="numeroDocumento" name="numeroDocumento"><br>
+                
+                <p>Introduce la fecha de nacimiento</p>
+                <input type="date" class="form-group" id="fechaNacimiento" name="fechaNacimiento"><br>
+                
+                <input type="checkbox" id="recordar" name="recordar">
+    
+                <label for="recordar">Recordar la información</label><br>
+    
+                <input type="submit" class="enviar" value="Enviar">
+             </form>
+            </div>
+            
+
+</body>
+</html>

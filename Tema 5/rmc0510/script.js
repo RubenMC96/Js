@@ -1,13 +1,18 @@
+import Cliente from "./Cliente";
 document.getElementById("enviar").addEventListener("click", validar, false);
 
 let nombreUsuario = localStorage.getItem("nombreUsuario");
 if (nombreUsuario) {
   document.getElementById("nombre").value = nombreUsuario;
 }
+let datos = [];
+
+datos.push = new Cliente("12345678Z", "1975/01/01", "123456789");
+datos.push = new Cliente("87654321X", "2000/12/31","987654321");
 
 function validar(e){
 
-  if(validarNombre() && validarContacto() && validarContrasena()){
+  if(validarDocumento() && validarFechaNac()){
     
     localStorage.setItem(
       "nombreUsuario",
@@ -24,8 +29,36 @@ function validar(e){
   }
 }
 
-function validarNombre(){
-  let nombre = document.getElementById("nombre");
+function validarDocumento(){
+  let documento = document.getElementsByName("opcion");
+
+  if(documento.value == "DNI"){
+
+    let dni = document.getElementById("dni").value;
+
+    for(let i = 0; i<= datos.length; i++){
+
+
+      if()
+
+
+
+
+
+
+
+
+
+    }
+
+  }
+
+  else{
+
+
+
+  }
+
 
   if(!nombre.checkValidity()){
     if(nombre.validity.pattermismatch){//mismatch da true si encuentra que NO se cumple el patter del HTML
