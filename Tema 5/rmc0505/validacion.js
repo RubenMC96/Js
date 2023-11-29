@@ -1,3 +1,5 @@
+
+
 document.getElementById("enviar").addEventListener("click", validar, false);
 
 function validar(e){
@@ -23,39 +25,46 @@ function validarString(){
 
     if( nombre.validity.valueMissing){
       error(nombre, "Introduce un nombre", "nombre");
-      return false;
+      
     }
     else if(nombre.validity.patterMismatch){
       error(nombre,"Solo se permiten letras", "nombre");
     }
+    return false;
   }
 
   if(!grupo.checkValidity){
     if(grupo.validity.valueMissing){
       error(grupo, "Introduce el grupo", "grupo");
-      return false;
+      
     }
     else if(grupo.validity.patterMismatch){
       error(grupo, "Solo se permiten letras", "grupo");
-      return false;
+      
     }
+    return false;
   }
   return true;
 }
 
-function validarAnno(){
+function validarAnno() {
+  let elemento = document.getElementById("anno");
 
-  let anno = document.getElementById("anno");
-  if (!anno.checkValidity) {
-    if(anno.validity.valueMissing){
-      error(anno, "Introduce un año", "anno");
-      return false
+  if (!elemento.checkValidity()) {
+    if (elemento.validity.rangeOverflow) {
+      error(
+        elemento,
+        "El año de publicación no puede ser mayor a 2023"
+      );
     }
-    else if(anno.validity.patterMismatch){
-      error(anno, "Formato incorrecto (AAAA)", "anno");
-      return false;
+
+    if (elemento.validity.rangeUnderflow) {
+      error(elemento, "El año de publicación debe de ser mayor de 0");
     }
+
+    return false;
   }
+
   return true;
 }
 
@@ -64,10 +73,10 @@ function validarEstante(){
   let estante = document.getElementById("localizacion");
 
   if(!estante.checkValidity){
-    if(estante.value != "" && estante.validity.patterMismatch){
-      error(estante, "Solo se permiten números", "estante");
-      return false;
+    if(estante.validity.patterMismatch){
+      error(estante, "Solo se permiten números o una cadena vacía", "estante");  
     }
+    return false;
   }
   return true;
 }
@@ -78,15 +87,19 @@ function error(elemento, mensaje, tipo){
 
   if(tipo == "nombre"){
     document.getElementById("avisoNombre").innerHTML = mensaje;
+    elemento.focus();
   }
   else if (tipo == "grupo") {
     document.getElementById("avisoGrupo").innerHTML = mensaje;
+    elemento.focus();
   }
   else if(tipo == "anno"){
     document.getElementById("avisoAnno").innerHTML = mensaje;
+    elemento.focus();
   }
   else{
     document.getElementById("avisoEstante").innerHTML = mensaje;
+    elemento.focus();
   }
 }
 
