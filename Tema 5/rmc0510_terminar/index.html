@@ -1,46 +1,54 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 5_9</title>
-    <link rel="stylesheet" href="css.css">
-    <link rel="stylesheet" href="error.css">
-    <script src="script.js" defer></script>
-    <!-- Simula la pantalla de creación de nuevo usuario de Amazon, 
-        utilizando las características de HTML5 y Javascript.:
-        Utiliza LocalStorage para almacenar el nombre del usuario 
-        la primera vez que se registre, cuando vuelva a entrar deben 
-        de aparecer los datos ya colocados. -->
-</head>
-<body>
-    
-        <form class="formulario">
-            <div class="formulario-body">
-                <h3>Accede a tu área de clientes</h3>
-                <p>Elije tu documento</p><br>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 10</title>
+    <link rel="stylesheet" href="./css.css" />
+    <script src="./script.js" type="module" defer></script>
+  </head>
+  <body>
+      <div id="inicio">
+        <h1 id="titulo">Accesde a tu área de cliente</h1>
 
-                    <input type="radio" class="opcion" name="opcion" id="dni" value="DNI">
-                    <label for="dni">DNI</label><br>
+        <form id="formInicio" action="./indexClave.html">
 
-                    <input type="radio" class="opcion" name="opcion" id="pasaporte" value="Pasaporte">
-                    <label for="pasaporte">Pasaporte</label><br>
-                    
-                <p>Introduce el número de documento</p>
+            <span>Documento de identidad</span>
+            <div id="documento">
+                <label for="dni">
+                    <input type="radio" name="option" value="dni">
+                    DNI
+                </label>
+                <label for="dni">
+                    <input type="radio" name="option" value="pasaporte">
+                    Pasaporte
+                </label>
+            </div><br>
+            <span id="numDoc">Número de documento </span><br>
+                <input type="text" id="num" maxlength="9" minlength="9" required><br>
+        
+            <span id="avisoDoc"></span><br>
+            <div id="fecha">
+                <span id="fech">Fecha de nacimiento</span> <br>
 
-                <input type="text" class="form-group" id="numeroDocumento" name="numeroDocumento"><br>
+                    <input type="number" id="dia" name="dia" min="1" max="31" placeholder="DD" required>
                 
-                <p>Introduce la fecha de nacimiento</p>
-                <input type="date" class="form-group" id="fechaNacimiento" name="fechaNacimiento"><br>
+                    <input type="number" id="mes" name="mes" min="1" max="12" placeholder="MM" required>
                 
-                <input type="checkbox" id="recordar" name="recordar">
-    
-                <label for="recordar">Recordar la información</label><br>
-    
-                <input type="submit" class="enviar" value="Enviar">
-             </form>
+                    <input type="number" id="anno" name="anno" min="1" max="2023" placeholder="AAAA" required><br>     
             </div>
+            <span id="avisoFecha"></span><br>
             
+            <div id="recordatorio">
+                <label for="recordar">
+                    <input type="checkbox" id="recordar">
+                    Recuerdame
+                </label>
+            </div>
 
-</body>
+            <button type="submit" id="enviar" >Enviar</button>
+
+        </form>
+      </div>
+  </body>
 </html>

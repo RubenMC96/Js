@@ -1,79 +1,109 @@
 body {
-  width: 400px;
-  border: 3px solid #7c7c7c;
-  border-radius: 5px;
-  margin-bottom: 15px;
-  margin: 10px;
-  background-color: #ffffff;
-  font-family: sans-serif;
-  margin-top: 10%;
-  margin-left: 35%;
-}
-.formulario {
-  padding: 16px;
-  text-align: center;
-  background-color: white;
-}
-
-.formulario-header .title-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
   margin: 0;
-  font-size: 18px;
-  color: #000000;
   background-color: white;
-}
-.formulario-body {
-  padding: 16px;
-  background-color: white;
-}
-.form-group {
-  margin-bottom: 10px;
-}
-.form-group label {
-  display: block;
-  font-size: 14px;
-  color: #000000;
-  font-weight: bold;
-  margin-bottom: 1px;
-}
-.opcion {
- 
-  color: orange;
-
-}
-.formulario-body input[type="radio"] {
-  accent-color: orange; 
-  text-align: left;
-}
-.form-group input[type="text"] {
-  width: 90%;
-  padding: 8px;
-  font-size: 14px;
-  border: solid 2px #000000;
-  border-radius: 4px;
-  color: #000000;
-  background-color: #fdfdfd;
+  font-family: sans-serif;
 }
 
-.form-group input[type="submit"] {
-  background-color: #121211;
-  color: #000000;
-  text-transform: uppercase;
+#inicio {
+  border: 1px solid black;
+  padding: 20px;
+  margin-top: 20px;
+  overflow-wrap: break-word;
+  border-radius: 5px;
 }
-.enviar {
-  width: 90%;
-  text-align: center;
-  margin-left: 3%;
-  font-size: 15px;
-  border: none;
-  padding: 17px 40px;
-  border-radius: 10px;
-  background-color: orange;
-  letter-spacing: 1.5px;
-  transition: all 0.3s ease;
-  color: #000000;
+
+h1 {
+  font-size: 25px;
+  font-weight: lighter;
+}
+
+
+p {
+  font-size: normal;
+}
+
+
+label {
+  font-size: normal;
+}
+
+#input {
+  border-radius: 5px;
+  border: 1px solid;
+}
+
+#documento {
+  font-size: small;
+}
+
+#documento label {
+  display: flex;
+  align-items: center;
+}
+
+#documento input {
+  margin-right: 5px;
+}
+
+#input[type="text"] {
+  width: 100%;
+  height: 30px;
+  box-sizing: border-box;
   cursor: pointer;
 }
-p {
+
+#button[type="submit"] {
+  width: 100%;
+  height: 30px;
+  border: 1px solid #fc6612;
+  background-color: #fc6612;
+  color: whitesmoke;
+  font-weight: bold;
   text-align: center;
-  font-size: 11px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+#password {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error {
+  border: solid 2px red;
+}
+
+.mensajeError {
+  color: red;
+  font-size: smaller;
+}
+
+.normal {
+  color: black;
+  background-color: white;
+  font-size: normal;
+  font-weight: normal;
+}
+
+.ocultar{
+  display: none;
+}
+
+.ensinar{
+  display: block;
+}
+
+input:disabled {
+  background-color: #f2f2f2;
+  color: #666;
+  cursor: not-allowed;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="16px" height="16px"><rect width="12" height="12" x="6" y="6" fill="gray" /></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
 }
