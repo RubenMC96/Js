@@ -4,13 +4,13 @@ document.getElementById("enviar").addEventListener("click", validar, false);
 
 function validar(e){
   borrarError();
+  
 
   if(validarString() && validarAnno() && validarEstante()){
 
     return true;
   }
   else{
-
     e.preventDefault();
     return false
   }
@@ -74,54 +74,52 @@ function validarEstante(){
 
   if(!estante.checkValidity){
     if(estante.validity.patterMismatch){
-      error(estante, "Solo se permiten números o una cadena vacía", "estante");  
+      error(estante, "Solo se permiten números o una cadena vacía");  
     }
     return false;
   }
   return true;
 }
 
-function error(elemento, mensaje, tipo){
+function error(elemento, mensaje){
 
   elemento.className = "error";
 
-  if(tipo == "nombre"){
-    document.getElementById("avisoNombre").innerHTML = mensaje;
-    elemento.focus();
-  }
-  else if (tipo == "grupo") {
-    document.getElementById("avisoGrupo").innerHTML = mensaje;
-    elemento.focus();
-  }
-  else if(tipo == "anno"){
-    document.getElementById("avisoAnno").innerHTML = mensaje;
-    elemento.focus();
-  }
-  else{
-    document.getElementById("avisoEstante").innerHTML = mensaje;
-    elemento.focus();
+  switch(elemento.id){
+    
+    case "nombre":
+      document.getElementById("aviso").innerHTML = mensaje;
+      document.getElementById("avisoNombre").className = "mensajeError";
+      elemento.focus();
+      break;
+    
+    case "grupo":
+      document.getElementById("aviso").innerHTML = mensaje;
+      document.getElementById("avisoGrupo").className = "mensajeError";
+      elemento.focus();
+      break;
+
+    case "anno":
+      document.getElementById("aviso").innerHTML = mensaje;
+      document.getElementById("avisoAnno").className = "mensajeError";
+      elemento.focus();
+      break;
+
+    case "estante":
+      document.getElementById("aviso").innerHTML = mensaje;
+      document.getElementById("avisoEstante").className = "mensajeError";
+      elemento.focus();
   }
 }
 
+
 function borrarError() {
   let formulario = document.forms[0];
-  const AVISONOMBRE = document.getElementById("avisoNombre");
-  const AVISOGRUPO = document.getElementById("avisoGrupo");
-  const AVISOANNO = document.getElementById("avisoAnno");
-  const AVISOESTANTE = document.getElementById("avisoEstante");
-  let divs = ["nombre", "grupo", "anno", "estante"];
+  const mensajeError = document.getElementById("aviso");
+  let divs = ["nombre", "grupo", "anno", "localizacion"];
 
-  AVISONOMBRE.innerHTML = "";
-  AVISONOMBRE.className = "";
-
-  AVISOGRUPO.innerHTML = "";
-  AVISOGRUPO.className = "";
-  
-  AVISOANNO.innerHTML = "";
-  AVISOANNO.className = "";
-
-  AVISOESTANTE.innerHTML = "";
-  AVISOESTANTE.className = "";
+  mensajeError.innerHTML = "";
+  mensajeError.className = "";
 
   for (let i = 0; i < formulario.elements.length; i++) {
     formulario.elements[i].className = "";
