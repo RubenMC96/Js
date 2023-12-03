@@ -8,7 +8,7 @@ body {
   font-family: sans-serif;
 }
 
-#caja1, #caja2 {
+#identificar, #confirClave {
   border: 1px solid black;
   padding: 20px;
   margin-top: 20px;
@@ -21,7 +21,7 @@ h1 {
   font-weight: lighter;
 }
 
-#h1p2 {
+#t2 {
   margin-left: 40px;
 }
 
@@ -29,7 +29,7 @@ p {
   font-size: normal;
 }
 
-#parte2 p {
+#confirClave p {
   margin-left: 40px;
 }
 
@@ -37,12 +37,12 @@ label {
   font-size: normal;
 }
 
-#parte1 input {
+#identificar input {
   border-radius: 5px;
   border: 1px solid;
 }
 
-#parte2 input {
+#confirClave input {
   border-radius: 3px;
   border: 1px solid gray;
   width: 80px;
@@ -64,14 +64,14 @@ label {
   margin-right: 5px;
 }
 
-#parte1 input[type="text"] {
+#identificar input[type="text"] {
   width: 100%;
   height: 30px;
   box-sizing: border-box;
   cursor: pointer;
 }
 
-#parte1 button[type="submit"] {
+#identificar button[type="submit"] {
   width: 100%;
   height: 30px;
   border: 1px solid #fc6612;
@@ -83,7 +83,7 @@ label {
   border-radius: 5px;
 }
 
-#password {
+#clave {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -96,7 +96,7 @@ label {
   max-width: 600px;
 }
 
-#parte2 button {
+#confirClave button {
   width: 100px;
   height: 100px;
   color: #fc6612;
@@ -126,7 +126,7 @@ label {
   display: none;
 }
 
-.ensinar{
+.show{
   display: block;
 }
 
