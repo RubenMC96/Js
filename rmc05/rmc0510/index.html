@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./Js/script.js" type="module" defer></script>
+    <link rel="stylesheet" href="./css.css">
+    <title>Ejercicio 5_10</title>
+</head>
+<body>
+    <div id="identificar">
+        <div id="formAcceso">
+            <h1 id="t1">Accede a tu área de cliente</h1>
+            <form id="formCliente">
+                <span id="documento">Elige tu documento</span><br>
+                <div id="opciones">
+                    <label for="dni">
+                        <input type="radio" name="tipoDoc" value="dni"> DNI o tarjerta de residencia
+                    </label>
+                    <label for="pasaporte">
+                        <input type="radio" name="tipoDoc" value="pasaporte"> Pasaporte
+                    </label>
+                </div><br>
+
+                <label for="numDoc">Número de documento
+                    <input type="text" id="numero" maxlength="9" minlength="9" required>
+                    <span id="avisoDoc"></span>
+                </label>
+
+                <div id="fechaNac">
+                    <label for="fecha">
+                        Fecha de nacimiento (AAAA/MM/DD)
+                    </label><br>
+
+                    <input type="number" id="dia" name="dia" min="1" max="31" placeholder="DD" required>
+                    <input type="number" id="mes" name="mes" min="1" max="12" placeholder="MM" required>
+                    <input type="number" id="anno" name="anno" min="1" max="2023" placeholder="AAAA" required>
+
+                </div>
+                <span id="avisoFecha"></span>
+
+                <div id="recuerdo">
+                    <label for="recordar">
+                        <input type="checkbox" id="recordar">
+                        Recuérdame
+                    </label>
+                </div>
+                <button type="submit" id="enviar">Entrar</button>
+            </form>
+        </div>
+
+        <div id="confirClave" class="ocultar">
+
+            <div id="formClave">
+                <h1 id="t2">Clave de seguridad</h1>
+                <form id="formClave">
+                    <span for="clave">Completa las posiciones que faltan de tu clave de seguridad</span>
+                    <div id="clave">
+                        <input type="password" id="pos1">
+                        <input type="password" id="pos2">
+                        <input type="password" id="pos3">
+                        <input type="password" id="pos4">
+                        <input type="password" id="pos5">
+                        <input type="password" id="pos6">
+                    </div>
+                    <br>
+                    <div id="teclado">
+                        <button type="button" id="0"></button>
+                        <button type="button" id="1"></button>
+                        <button type="button" id="2"></button>
+                        <button type="button" id="3"></button>
+                        <button type="button" id="4"></button>
+                        <button type="button" id="5"></button>
+                        <button type="button" id="6"></button>
+                        <button type="button" id="7"></button>
+                        <button type="button" id="8"></button>
+                        <button type="button" id="9"></button>
+                    </div>
+                    <span id="avisoClave"></span>
+                </form>
+            </div>
+
+        </div>
+        
+    </div>
+</body>
+</html>

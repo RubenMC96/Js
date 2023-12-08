@@ -1,6 +1,6 @@
 import Cliente from "./Cliente";
 
-document.getElementById("enviar").addEventListener("submit", validar,false);
+document.getElementById("enviar").addEventListener("click", validar,false);
 
 //Declaramos todas las variables y arrays necesarios para identificar y 
 //comprobar clave

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 5_5</title>
+    <!-- <link rel="stylesheet" href="estilos.css"> -->
+    <script src="script.js" type="module" defer></script>
+    <script src="validacion.js" defer></script>
+    <link rel="stylesheet" href="estilos.css">
+    
+  </head>
+    <h1>CRUD amacén de discos</h1>
+
+    <form id="formDisco">
+        <label for="nombre"> Nombre:
+            <input type="text" id="nombre" placeholder="Nombre del disco" maxlength="20" pattern="^[\s\S]{1,20}$" required/><br/>
+            <span id="avisoNombre"></span>
+        </label>
+
+        <label for="grupo">Grupo:
+            <input type="text" id="grupo" placeholder="Nombre del grupo" maxlength="20" pattern="^[\s\S]{1,20}$" title="El nombre del grupo tiene una longitud máxima de 20 caracteres" required/><br/>
+            <span id="avisoGrupo"></span>
+          </label>
+
+        <label for="anno"> Año:
+          <input type="number" id="anno" placeholder="Año de publicación del disco" maxlength="4" min="0" max="2023" title="El año de publicación tiene que contener 4 dígitos" required/><br/>
+          <span id="avisoAnno"></span>
+        </label>
+
+        <select id="tipo" placeholder="Seleccione un género">
+          <option value="pop">Pop</option>
+          <option value="indie">Indie</option>
+          <option value="flamenco">Flamenco</option>
+          <option value="rock">Rock</option>
+          <option value="intrumental">Intrumental</option>
+        </select><br/>
+
+        <input type="file" id="caratula" placeholder="Carátula" /><br/>
+      
+        <input type="number" id="local" placeholder="Número de estantería" pattern="^(|[\d]+)$"/><br/>
+        <span id="avisoEstante"></span>
+
+        <select id="prestamo" placeholder="Seleccioneestado del prestamo">
+          <option value="Prestado">Prestado</option>
+          <option value="No_Prestado">No Prestado</option>
+        </select><br/>
+        <button type="submit" id="enviar">Añadir disco</button>
+      </form><br/><br/>
+    
+    <div id="tdiscos"></div>
+
+    <button id="showTotal">Mostrar el número de discos</button>
+    <button id="showTabla">Mostrar todos los discos</button>
+    <button id="showInterval">Filtrar por año de publicación</button>
+    <button id="borrarDisco">Borrar un disco</button>
+    <button id="showDisco">Consultar un disco</button><br>
+
+    <span id="show"></span>
+  </body>
+</html>

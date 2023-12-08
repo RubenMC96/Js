@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5_7</title>
+    <script src="script.js"></script>
+</head>
+<body>
+    <form id="envioForm" onsubmit="return validarFormulario()">
+        Fecha de creación: <input type="text" id="fecha" placeholder="formato dd/mm/aaaa" required><br>
+        Empleado: <input type="text" id="empleado" placeholder="formato WW$1234" required><br>
+        Destinatario: <input type="text" id="destinatario" placeholder="NM_Madrid:1234" required><br>
+        Peso en gramos: <input type="number" id="peso" min="100" max="5000" placeholder="peso entre 100 y 5000 gramos" required><br>
+        Número de cuenta: <input type="text" id="cuenta" placeholder="formato IBAN12345678901234567890" required><br>
+        <input type="submit" id="enviar" value="Enviar">
+</body>
+</html>

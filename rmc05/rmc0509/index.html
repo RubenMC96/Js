@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5_9</title>
+    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="error.css">
+    <script src="script.js" defer></script>
+    <!-- Simula la pantalla de creación de nuevo usuario de Amazon, 
+        utilizando las características de HTML5 y Javascript.:
+        Utiliza LocalStorage para almacenar el nombre del usuario 
+        la primera vez que se registre, cuando vuelva a entrar deben 
+        de aparecer los datos ya colocados. -->
+</head>
+<body>
+    <div>
+        <form class="formulario">
+        <div class="formulario-header">
+            <img src="./img/amazon_es.png" alt="Logo amazon" id="img"><br/>
+            <p class="title-header">Crear cuenta</p>
+        </div>
+        <div class="formulario-body">
+            <div class="form-group">
+                <label class="nombre" for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" placeholder="Nombre y apellidos" pattern="[a-zA-Z\s]+" required/>
+                <span><img id="avisoNombre"></span>
+            </div>
+            <div class="form-group">
+                <label for="contacto">Número de movil o dirección de correo electrónico</label>
+                <input  class="contacto" type="text" name="contacto" id="contacto" required><br><br>
+                <span><img id="avisoContacto" hidden></span>
+            </div>
+            <div class="form-group">
+                <label for="contrasena1">Contraseña</label>
+                <input  class="contrasena" type="password" name="contrasena" id="contrasena1" pattern="[a-zA-Z\d]{6,}" placeholder="Al menos 6 caracteres" required><br>
+                <span><img id="avisoContrasena"></span>
+                <label for="contrasena2">Confirma tu contraseña</label>
+                <input  class="contrasena" type="password" name="contrasena" id="contrasena2" pattern="[a-zA-Z\d]{6,}" required><br><br>
+            </div>
+            
+            <div class="form-group">
+                <label for="enviar"></label><br>
+                <input type="submit" class="enviar" name="submit" id="enviar" value="Enviar"><br>
+            </div>
+        
+        </form>
+
+        <span id="aviso"></span>
+
+        </div>
+    </div>
+</body>
+</html>
