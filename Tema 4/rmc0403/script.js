@@ -1,4 +1,4 @@
-class Cliente {
+class Cliente {//Linea: 192 T4 MIRAR GETTERS Y SETTERS Linea: 244
   constructor(nombre, localidad, cuota) {
     this.nombre = nombre;
     this.localidad = localidad;
@@ -42,7 +42,7 @@ function ejecuta() {
     case "2":
       document.getElementById(
         "tablaClientes"
-      ).innerHTML = `<table> <tr><td> Nombre</td><td>Cuota</td> <tr/>`;
+      ).innerHTML = `<table> <tr><td> Nombre</td><td>Cuota</td> <tr/>`;//Forma de generar elementos en HTML
       filtroLocalidad();
       document.getElementById("tablaClientes").innerHTML += `</table>`;
       break;
@@ -79,7 +79,7 @@ function filtroLocalidad() {
 
 function filtroCuota() {
   let cuotaMinima = Number(prompt("Introduce la cuota mínima"));
-  let clientesCuota = clientes.filter((cliente) => cliente.cuota > cuotaMinima);
+  let clientesCuota = clientes.filter((cliente) => cliente.cuota > cuotaMinima);//Filtrar
   clientesCuota.forEach((cliente) => {
     document.getElementById(
       "tablaClientes"
