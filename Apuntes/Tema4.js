@@ -67,6 +67,9 @@
      var todos = animales.concat(masAnimales);
      document.write("<br/>El array completo es: "+todos.toString());
 
+     //Filter: El método filter() en JavaScript es un método de instancia del objeto Array que se utiliza para crear un nuevo array con todos los elementos que cumplan la condición implementada por la función dada. Este método no modifica el array original 1
+      //Ejemplo:Tema4/ejercicio 03/script.js/ Linea: 82
+      
      //copyWithin(): copia elementos del array y los sustituye por otros elementos del array.
      //fill("<elemento>"): sustituye los elementos del array por el indicado.
 
