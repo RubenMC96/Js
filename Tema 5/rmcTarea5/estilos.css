@@ -1,0 +1,35 @@
+label {
+    width: 150px;
+    float: left;
+    margin-bottom: 5px;
+  }
+  input,
+  select {
+    width: 150px;
+    float: left;
+    margin-bottom: 5px;
+  }
+  fieldset {
+    background: #e3e3ce;
+    width: 350px;
+    border: thick solid rgb(199, 186, 212);
+  }
+  
+  #mensajes {
+    float: left;
+    background: #9d43eb;
+    width: 325px;
+  }
+  #errores {
+    float: left;
+    background: #f31818;
+    width: 325px;
+  }
+  #intentos {
+    float: left;
+    background: #ccff33;
+    width: 325px;
+  }
+  .error {
+    border: solid 2px #ff0000;
+  }

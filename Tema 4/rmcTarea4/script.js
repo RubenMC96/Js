@@ -1,121 +1,30 @@
-import Disco from "./Disco.js";
-import * as arrays from "./arrays.js";
+import Edificio from "./Edificio.js";
 
-let discos = [];
+let edificioA = new Edificio("Garcia Prieto", 58, 15706);
+let edificioB = new Edificio("Camino Caneiro", 29, 32004);
+let edificioC = new Edificio("San Clemente", "s/n", 15705);
 
-document.getElementById("formDisco").addEventListener("submit", function (e) {
-  e.preventDefault();
-  let nombre = document.getElementById("nombre").value;
-  let grupo = document.getElementById("grupo").value;
-  let anno = document.getElementById("anno").value;
-  let tipo = document.getElementById("tipo").value;
-  let localizacion = document.getElementById("local").value;
-  let caratula = document.getElementById("caratula").value;
-  let prestamo = document.getElementById("prestamo").value;
+alert(
+  `El código postal del edificio A es: ${edificioA.imprimeCodigoPostal()}`
+);
 
-  let disco = new Disco(nombre, grupo, anno, tipo);
-  disco.modLocal(localizacion);
-  disco.modPrestado(prestamo);
-  disco.modCaratula(caratula);
-  discos.push(disco);
-});
+alert(`La calle del edificio C es: ${edificioC.imprimeCalle()}`);
 
-document.getElementById("showTotal").addEventListener("click", function () {
-  document.getElementById(
-    "show"
-  ).innerHTML = `Número de discos: ${arrays.showNum(discos)}`;
-});
+alert(
+  `El edificio B está situado en la calle ${edificioB.imprimeCalle()} número ${edificioB.imprimeNumero()}`
+);
 
-document.getElementById("showTabla").addEventListener("click", function () {
-  let respuesta = prompt(
-    "¿En qué orden quieres mostrar los discos? \n 1 - Por defecto \n 2 - En orden inverso \n 3- Alfabéticamente"
-  );
-  let tabla = `<table border="1px"><tr><th>Posicion</th><th>Nombre</th><th>Grupo</th><th>Año</th><th>Tipo</th><th>Localización</th><th>Prestado</th><th>Carátula</th></tr>`;
-  let lista;
-  let ok = false;
-  do {
-    switch (respuesta) {
-      case "1":
-        lista = discos;
-        ok = true;
-        break;
-      case "2":
-        lista = arrays.showInv(discos);
-        ok = true;
-        break;
-      case "3":
-        lista = discos.sort((a, b) => a.nombre.localeCompare(b.nombre));
-        ok = true;
-        break;
-      default:
-        alert(
-          "Error, introduce una opcion válida: ¿En qué orden quieres mostrar los discos? \n 1 - Por defecto \n 2 - En orden inverso \n 3- Alfabéticamente"
-        );
-        return;
-    }
-  } while (!ok);
+edificioA.agregarPlantasYPuertas(2, 3);
 
-  let i = 0;
-  lista.forEach((disco) => {
-    i++;
-    tabla +=
-      `<tr><td>` +
-      i +
-      `</td><td>${disco.nombre}</td><td>${disco.grupo}</td><td>${disco.anno}</td><td>${disco.tipo}</td><td>${disco.localizacion}</td><td>${disco.prestado}</td><td>${disco.caratula}</td></tr>`;
-  });
+edificioA.agregarPropietario("Jose Antonio Lopez", 1, 1);
+edificioA.agregarPropietario("Luisa Martinez", 1, 2);
+edificioA.agregarPropietario("Marta Castellón", 1, 3);
+edificioA.agregarPropietario("Antonio Pereira", 2, 2);
 
-  tabla += `</table>`;
+edificioA.imprimePlantas();
 
-  document.getElementById("tdiscos").innerHTML = tabla;
-});
+edificioA.agregarPlantasYPuertas(1, 3);
 
-document.getElementById("showInterval").addEventListener("click", function () {
-  let intervalo = prompt('Indique el intervalo (separados por un "-"').split(
-    "-"
-  );
-  let inicio = Number.parseInt(intervalo[0]);
-  let fin = Number.parseInt(intervalo[1]);
+edificioA.agregarPropietario("Pedro Meijide", 3, 2);
 
-  let discosFiltrados = discos.filter(
-    (disco) => disco.anno >= inicio && disco.anno <= fin
-  );
-  document.getElementById("show").innerHTML = alert(
-    `Hay ${discosFiltrados.length} entre los años ${inicio} y ${fin}`
-  );
-});
-
-document.getElementById("borrarDisco").addEventListener("click", function () {
-  let opcion = prompt("Selecciona una opción: 1. Al principio. 2. Al final");
-
-  if (opcion == "1") {
-    discos = arrays.removeFrs(discos);
-  } else if (opcion == "2") {
-    discos = arrays.removeLst(discos);
-  }
-});
-
-document.getElementById("showDisco").addEventListener("click", function () {
-  let opcion = prompt("Seleccione una opción: 1. Por posición  2. Por nombre");
-
-  if (opcion == "1") {
-    let posicion = Number(prompt("Indique la posición"));
-    if (posicion >= 0 && posicion <= discos.length) {
-      document.getElementById("show").innerHTML =
-        discos[posicion - 1].showInfo();
-    } else {
-      document.getElementById(
-        "show"
-      ).innerHTML = `No se encuentra la posición: ${posicion}`;
-    }
-  } else if (opcion == "2") {
-    let nombre = prompt("Indique el nombre del disco");
-    let disco = discos.find((disco) => disco.nombre == nombre);
-    if (disco) {
-      alert(disco.showInfo());
-    } else {
-      alert("Disco no encontrado");
-    }
-  } else {
-    alert("Opción no válida");
-  }
-});
+edificioA.imprimePlantas();

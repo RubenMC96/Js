@@ -1,20 +1,17 @@
 export default class Edificio {
-  constructor(calle, numero, codigoPostal) {
+  constructor(calle, numero, cp) {
     this.calle = calle;
     this.numero = numero;
-    this.codigoPostal = codigoPostal;
-    this.plantas = {};
-    document.getElementById(
-      "show"
-    ).innerHTML = `Construido nuevo edificio en calle: ${calle}, nº: ${numero}, CP: ${codigoPostal}.`;
+    this.cp = cp;
+    this.plantas = [];
+    console.log(
+      `Construido nuevo edificio en calle: ${this.calle}, nº: ${this.numero}, CP: ${this.cp}.`
+    );
   }
 
-  agregarPlantasYPuertas(numPlantas, puertas) {
-    for (let i = 1; i <= numPlantas; i++) {
-      this.plantas[i] = {
-        puertas: puertas,
-        propietarios: {},
-      };
+  agregarPlantasYPuertas(numPlantas, numPuertas) {
+    for (let i = 0; i < numPlantas; i++) {
+      this.plantas.push(new Array(numPuertas).fill(null));
     }
   }
 
@@ -26,67 +23,39 @@ export default class Edificio {
     this.calle = calle;
   }
 
-  modificarCodigoPostal(codigo) {
-    this.codigoPostal = codigo;
+  modificarCp(codigo) {
+    this.cp = codigo;
   }
 
-  showCalle() {
+  imprimeCalle() {
     return this.calle;
   }
 
-  showNumero() {
+  imprimeNumero() {
     return this.numero;
   }
 
-  showCodigoPostal() {
-    return this.codigoPostal;
+  imprimeCp() {
+    return this.cp;
   }
 
   agregarPropietario(nombre, planta, puerta) {
-    this.plantas[planta].propietarios[puerta] = nombre;
-    document.getElementById(
-      "show"
-    ).innerHTML = `${nombre} es ahora el propietario de la puerta ${puerta} de la planta ${planta}.`;
+    this.plantas[planta - 1][puerta - 1] = nombre;
+    console.log(
+      `${nombre} es ahora el propietario de la puerta ${puerta} de la planta ${planta}.`
+    );
   }
 
-  showPlantas() {
-    for (let planta in this.plantas) {
-      for (let puerta in this.plantas[planta].propietarios) {
-        document.getElementById(
-          "show"
-        ).innerHTML = `Propietario de la puerta ${puerta} en la planta ${planta}: ${this.plantas[planta].propietarios[puerta]}`;
-      }
-    }
+  imprimePlantas() {
+    this.plantas.forEach((planta, i) => {
+      planta.forEach((puerta, j) => {
+        console.log(
+          `Propietario del piso ${j + 1} de la planta ${i + 1}: ${
+            puerta ? puerta : ""
+          }`
+        );
+      });
+    });
   }
 }
-/* Mirar los discos y ver como hice un disco nuevo (no el formulario) ademas hay 
-que mirar recoger los datos del usuario. */
-document
-  .getElementById("newEdificio")
-  .addEventListener("click", new Edificio());
-document
-  .getElementById("newPropietario")
-  .addEventListener("click", Edificio.agregarPropietario);
-document
-  .getElementById("changeNumero")
-  .addEventListener("click", Edificio.modificarNumero);
-document
-  .getElementById("changeCalle")
-  .addEventListener("click", Edificio.modificarCalle);
-document
-  .getElementById("changeCP")
-  .addEventListener("click", Edificio.modificarCodigoPostal);
-document
-  .getElementById("showCalle")
-  .addEventListener("click", Edificio.showCalle);
-document
-  .getElementById("showNumero")
-  .addEventListener("click", Edificio.showNumero);
-document
-  .getElementById("showCP")
-  .addEventListener("click", Edificio.showCodigoPostal);
-document
-  .getElementById("showPlantas")
-  .addEventListener("click", Edificio.showPlantas);
-
 export { Edificio };
