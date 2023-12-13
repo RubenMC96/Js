@@ -1,0 +1,48 @@
+li.pregunta-correcta {
+    color: green;
+  }
+  
+  li.pregunta-incorrecta {
+    color: red;
+  }
+  
+  .pregunta-correcta .pregunta-icono::before {
+    content: "✔";
+    color: green;
+  }
+  
+  .pregunta-incorrecta .pregunta-icono::before {
+    content: "✘";
+    color: red;
+  }
+  
+  ul {
+    list-style-type: none;
+  }
+  
+  #correctas {
+    color: green;
+  }
+  
+  #incorrectas {
+    color: red;
+  }
+  
+  .normal {
+    color: black;
+    background-color: white;
+    font-size: normal;
+    font-weight: normal;
+  }
+  
+  .error {
+    color: red;
+    font-style: italic;
+    font-weight: bold;
+  }
+  
+  .no-select {
+    background-color: red;
+    color: white;
+  }
+  
