@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5_9</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" type="module" defer></script>
+</head>
+<body>
+    <div>
+        <form  class="formulario">
+        <div class="formulario-header">
+            <p class="title-header">Registro de Personas</p>
+        </div>
+        <div class="formulario-body">
+            <div class="form-group">
+                <label class="nombre" for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" minlength="5", maxlength="20" pattern="[a-zA-Z\s]{2,15}" required/>
+                <span><img id="avisoNombre"></span><br>
+
+                <label class="ape" for="apellidos">Apellidos</label>
+                <input type="text" name="apellidos" id="apellidos" minlength="2" maxlength="50" pattern="[a-zA-Z\s]{2,50}" required/>
+                <span><img id="avisoApellido"></span><br>
+
+                <label for="contacto">Email</label>
+                <input  class="email" type="text" name="email" id="email" required>
+                <span><img id="avisoEmail" hidden></span><br>
+
+                <label for="contrasena">Contraseña</label>
+                <input  class="contrasena" type="password" name="contrasena" id="contrasena"  required><br>
+                <span><img id="avisoContrasena"></span><br>
+
+                <label for="aceptar">
+                    <input class="aceptar" type="checkbox" name="aceptar" id="aceptar">
+                    Acepto las condiciones de servicio
+                </label>
+                <span><img id="avisoAceptar"></span><br>
+
+                <label for="enviar"></label><br>
+                <input type="submit" class="enviar" name="submit" id="enviar" value="Enviar"><br>
+            </div>
+        
+        </form>
+
+    </div>
+
+        <button class="enviar" id="buscar">Filtrar por correo</button>
+
+        <table border="1" id="tabla"></table>
+
+</body>
+</html>
