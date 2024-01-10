@@ -19,7 +19,8 @@ function iniciar(){
         //Creamos la linea de texto
         let elemento = document.createElement("li");
         tabla.appendChild(elemento);
-        let texto = arrTareas[i]._texto;
+        let texto = arrTareas[i]._texto
+        ;
         let linea = document.createElement("span");
         //Asignamos el texto a su span
         linea = document.createTextNode(texto);
