@@ -3,7 +3,7 @@ import * as arrays from "./arrays.js";
 
 let discos = [];
 
-document.getElementById("formDisco").addEventListener("submit", function (e) {
+document.getElementById("formDisco").addEventListener("enviar", function (e) {
   e.preventDefault();
   let nombre = document.getElementById("nombre").value;
   let grupo = document.getElementById("grupo").value;

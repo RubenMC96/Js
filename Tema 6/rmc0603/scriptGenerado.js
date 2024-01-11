@@ -1,5 +1,6 @@
 window.addEventListener("load", iniciar, false);
 
+
 function iniciar(){
 
     //Obtenemos el formualrio del html
@@ -15,13 +16,19 @@ function iniciar(){
 
     let nombre = document.createElement("input");
     nombre.type = "text";
+    nombre.id = "nombre";
     nombre.className = "nombre";
     nombre.placeholder = "Nombre del disco";
     nombre.maxlength="20";
     nombre.pattern="^[\s\S]{1,20}$";
-    nombre.required = true;
+    formulario.appendChild(nombre);
+    
+    let nombSalto1 = document.createElement("br");
+    let nombSalto2 = document.createElement("br");
 
-     
+    formulario.appendChild(nombSalto1);
+    formulario.appendChild(nombSalto2);
+
     //Generamos el SEGUNDO elemento hijo del form
     let grupoLabel = document.createElement("label");
     grupoLabel.for = "grupo";
@@ -39,6 +46,14 @@ function iniciar(){
     grupo.pattern="^[\s\S]{1,20}$";
     grupo.title = "El nombre del grupo tiene una longitud máxima de 20 caracteres";
     grupo.required = true;
+    formulario.appendChild(grupo);
+
+    let grupoSalto1 = document.createElement("br");
+    let grupoSalto2 = document.createElement("br");
+
+    formulario.appendChild(grupoSalto1);
+    formulario.appendChild(grupoSalto2);
+
 
     //Generamos el terce elemento hijo del form
     let annoLabel = document.createElement("label");
@@ -59,8 +74,21 @@ function iniciar(){
     anno.pattern="^[\s\S]{1,20}$";
     anno.title = "El año de publicación tiene que contener 4 dígitos";
     anno.required = true;
-     
+    
+    formulario.appendChild(anno);
+
+    let annoSalto1 = document.createElement("br");
+    let annoSalto2 = document.createElement("br");
+
+    formulario.appendChild(annoSalto1);
+    formulario.appendChild(annoSalto2);
+    
     //Creamos el select de géneros
+
+    let selectLabel = document.createElement("label");
+    selectLabel.for = "tipo";
+    selectLabel = document.createTextNode("Seleccione un género");
+    formulario.appendChild(selectLabel);
 
     let selector = document.createElement("select");
     selector.id = "tipo";
@@ -70,30 +98,43 @@ function iniciar(){
 
     let option1 = document.createElement("option");
     option1.value = "pop";
-    option1 = document.createTextNode("Pop");
+    option1.appendChild(document.createTextNode("Pop"));
     selector.appendChild(option1);
 
     let option2 = document.createElement("option");
     option2.value = "indie";
-    option2 = document.createTextNode("Indie");
+    option2.appendChild(document.createTextNode("Indie"));
     selector.appendChild(option2);
 
     let option3 = document.createElement("option");
     option3.value = "flamenco";
-    option3 = document.createTextNode("Flamenco");
+    option3.appendChild(document.createTextNode("Flamenco"));
     selector.appendChild(option3);
 
     let option4 = document.createElement("option");
     option4.value = "Rock";
-    option4 = document.createTextNode("Rock");
+    option4.appendChild(document.createTextNode("Rock"));
     selector.appendChild(option4);
 
     let option5 = document.createElement("option");
     option5.value = "instrumental";
-    option5 = document.createTextNode("Intrumental");
+    option5.appendChild(document.createTextNode("Intrumental"));
     selector.appendChild(option5);
 
+
+    let selectSalto1 = document.createElement("br");
+    let selectSalto2 = document.createElement("br");
+
+    formulario.appendChild(selectSalto1);
+    formulario.appendChild(selectSalto2);
+
+
     //Creamos el input de la caratula
+
+    let caratulaLabel = document.createElement("label");
+    caratulaLabel.for = "caratula";
+    caratulaLabel = document.createTextNode("Caratula");
+    formulario.appendChild(caratulaLabel);
 
     let caratula = document.createElement("input");
     caratula.type = "file";
@@ -102,7 +143,19 @@ function iniciar(){
     
     formulario.appendChild(caratula);
 
+    let caratulaSalto1 = document.createElement("br");
+    let caratulaSalto2 = document.createElement("br");
+
+    formulario.appendChild(caratulaSalto1);
+    formulario.appendChild(caratulaSalto2);
+
     //Creamos el input de la localización
+
+    let localizacionLabel = document.createElement("label");
+    localizacionLabel.for = "local";
+    localizacionLabel = document.createTextNode("Localizacion");
+    //Generamos el primer hijo de formulario
+    formulario.appendChild(localizacionLabel);
 
     let localizacion = document.createElement("input");
     localizacion.type = "number";
@@ -134,33 +187,5 @@ function iniciar(){
     formulario.appendChild(aviso);
     //Fin formulario
 
-    // //Creamos la tabla de discos
-
-    // let tabla = document.createElement("div");
-    // tabla.id = "tdiscos";
-
-    // //Creamos los botones de gestión
-
-    // let boton1 = document.createElement("button");
-    // boton1.id = "showTotal";
-    // boton1 = document.createTextNode("Mostrar el número de discos");
     
-    // let boton2 = document.createElement("button");
-    // boton2.id = "showTabla";
-    // boton2 = document.createTextNode("Mostrar todos los discos");
-    
-    // let boton3 = document.createElement("button");
-    // boton3.id = "showInterval";
-    // boton3 = document.createTextNode("Filtrar por año de publicación");
-    
-    // let boton4 = document.createElement("button");
-    // boton4.id = "borrarDisco";
-    // boton4 = document.createTextNode("Borrar un disco");
-    
-    // let boton5 = document.createElement("button");
-    // boton5.id = "showDisco";
-    // boton5 = document.createTextNode("Consultar un disco");
-
-    // let show = document.createElement("span");
-    // show.id = "show";
 }
