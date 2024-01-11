@@ -1,13 +1,13 @@
 
 //Eventos
-window.addEventListener("texto", crearTexto, false);
-window.addEventListener("password", crearPassword, false);
-window.addEventListener("textarea", crearTextarea, false);
-window.addEventListener("label", crearLabel, false);
-window.addEventListener("imagen", crearImagen, false);
-window.addEventListener("checkbox", crearCheckbox, false);
-window.addEventListener("radio", crearRadio, false);
-window.addEventListener("boton", crearBoton, false);
+document.getElementById("texto").addEventListener("click", crearTexto, false);
+document.getElementById("password").addEventListener("click", crearPassword, false);
+document.getElementById("textarea").addEventListener("click", crearTextarea, false);
+document.getElementById("label").addEventListener("click", crearLabel, false);
+document.getElementById("imagen").addEventListener("click", crearImagen, false);
+document.getElementById("checkbox").addEventListener("click", crearCheckbox, false);
+document.getElementById("radio").addEventListener("click", crearRadio, false);
+document.getElementById("boton").addEventListener("click", crearBoton, false);
 
 
 //Funciones
@@ -43,16 +43,56 @@ function crearTextarea(){
 
 function crearLabel(){
 
+    let labelNombre = prompt("Indique a qué input va referido:");
+
+    let label1 = document.createElement("input");
+    label1.for = labelNombre;
+    confirm(`Se ha creado un label para el elemento con id: ${labelNombre}`);
+
 }
 function crearImagen(){
+
+    let ruta = prompt("Indique la ruta de la imagen");
+
+    let imagen = document.createElement("img");
+    imagen.ruta = ruta;
+    confirm(`Se ha creado una imagen con la ruta: ${ruta}`);
 
 }
 function crearCheckbox(){
 
+    let nombre = prompt("Indique el nombre");
+    let valor = prompt("Indique el valor");
+
+    let checBox = document.createElement("checkbox");
+    checBox.name = nombre;
+    checBox.value = valor;
+
+    confirm(`Se ha creado un checkbox con el nombre ${nombre}) y un value ${valor}`);
+
 }
 function crearRadio(){
 
+    let nombre = prompt("Indique el nombre");
+    let valor = prompt("Indique el valor");
+
+    let radio1 = document.createElement("input");
+    radio1.type = "radio";
+    radio1.name = nombre;
+    radio1.value = valor;
+
+    confirm(`Se ha creado un input tipo radio con nombre: ${nombre}, y un value: ${valor}`);
+    
 }
 function crearBoton(){
 
+    let nombre = prompt("Indique el nombre");
+    let valor = prompt("Indique el valor");
+
+    let boton = document.createElement("button");
+    boton.type = "submit";
+    boton.name = nombre;
+    boton.value = valor;
+
+    confirm(`Se ha creado un botón tipo submit con nombre: ${nombre}, y un value: ${valor}`);
 }
