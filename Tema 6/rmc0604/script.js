@@ -10,7 +10,10 @@ document.getElementById("radio").addEventListener("click", crearRadio, false);
 document.getElementById("boton").addEventListener("click", crearBoton, false);
 
 
+
 //Funciones
+
+//const mostrar = document.getElementsByClassName("mostrar")[0];
 
 function crearTexto(){
     let nombre = prompt("Indique el nombre del input:");
@@ -19,6 +22,9 @@ function crearTexto(){
     inputNombre.type = "text";
     inputNombre.name = nombre;
     confirm(`Se ha creado un input de tipo texto con el nombre de: ${nombre}`);
+    let mostrar = document.getElementsByClassName("mostrar")[0];
+    mostrar.appendChild(inputNombre);
+    
 }
 function crearPassword(){
     let contrasenna = prompt("Indique el nombre del input:");
@@ -27,6 +33,8 @@ function crearPassword(){
     inputContrasenna.type = "password";
     inputContrasenna.name = contrasenna;
     confirm(`Se ha creado un input de tipo password con el nombre de: ${contrasenna}`);
+    let mostrar = document.getElementsByClassName("mostrar")[0];
+    mostrar.appendChild(inputContrasenna);
 
 }
 function crearTextarea(){
@@ -38,6 +46,8 @@ function crearTextarea(){
     area.cols = "40";
     area.name = areaNomb;
     confirm(`Se ha creado un textarea con el nombre de: ${areaNomb}`);
+    let mostrar = document.getElementsByClassName("mostrar")[0];
+    mostrar.appendChild(area);
 
 }
 
@@ -45,9 +55,11 @@ function crearLabel(){
 
     let labelNombre = prompt("Indique a qué input va referido:");
 
-    let label1 = document.createElement("input");
+    let label1 = document.createElement("label");
     label1.for = labelNombre;
     confirm(`Se ha creado un label para el elemento con id: ${labelNombre}`);
+    let mostrar = document.getElementsByClassName("mostrar")[0];
+    mostrar.appendChild(label1);
 
 }
 function crearImagen(){
@@ -57,6 +69,8 @@ function crearImagen(){
     let imagen = document.createElement("img");
     imagen.ruta = ruta;
     confirm(`Se ha creado una imagen con la ruta: ${ruta}`);
+    let mostrar = document.getElementsByClassName("mostrar")[0];
+    mostrar.appendChild(imagen);
 
 }
 function crearCheckbox(){
@@ -69,6 +83,8 @@ function crearCheckbox(){
     checBox.value = valor;
 
     confirm(`Se ha creado un checkbox con el nombre ${nombre}) y un value ${valor}`);
+    let mostrar = document.getElementsByClassName("mostrar")[0];
+    mostrar.appendChild(checBox);
 
 }
 function crearRadio(){
@@ -82,6 +98,8 @@ function crearRadio(){
     radio1.value = valor;
 
     confirm(`Se ha creado un input tipo radio con nombre: ${nombre}, y un value: ${valor}`);
+    let mostrar = document.getElementsByClassName("mostrar")[0];
+    mostrar.appendChild(radio1);
     
 }
 function crearBoton(){
@@ -95,4 +113,6 @@ function crearBoton(){
     boton.value = valor;
 
     confirm(`Se ha creado un botón tipo submit con nombre: ${nombre}, y un value: ${valor}`);
+    let mostrar = document.getElementsByClassName("mostrar")[0];
+    mostrar.appendChild(boton);
 }

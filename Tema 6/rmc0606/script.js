@@ -48,19 +48,19 @@ function iniciar(){
     resultados.appendChild(salto5);
 
 
-    // let span6 = document.createElement("span");
-    // let numWiki = 0;
-    // let regex = /\/wiki\/Municipio/;
-    // for(let i = 0; i<= enlaces.length; i++){
-    //     if(regex.test(enlaces[i].href)){
-    //         numWiki++;
-    //     }
-    // }
-    // let texto6 = document.createTextNode(`Hay ${numWiki} enlaces que apuntan a /wiki/Municipio`);
-    // span6.appendChild(texto6);
-    // resultados.appendChild(span6);
-    // let salto6 = document.createElement("br");
-    // resultados.appendChild(salto6);
+    let span6 = document.createElement("span");
+    let numWiki = 0;
+    let regex = /\/wiki\/Municipio/;
+    for(let i = 0; i<= enlaces.length; i++){
+        if(regex.test(enlaces[i].href)){
+            numWiki++;
+        }
+    }
+    let texto6 = document.createTextNode(`Hay ${numWiki} enlaces que apuntan a /wiki/Municipio`);
+    span6.appendChild(texto6);
+    resultados.appendChild(span6);
+    let salto6 = document.createElement("br");
+    resultados.appendChild(salto6);
 
 
     // let span7 = document.createElement("span");
@@ -73,8 +73,8 @@ function iniciar(){
     // resultados.appendChild(salto7);
 
 
-    for(let i=0; i<= parrafos.length; i++){
-        console.log(`El texto del parrafo ${i} es: ${parrafos[i].textContent}`);
+    for(let i=0; i<= parrafos.length -1; i++){
+        console.log(`El texto del parrafo ${i +1} es: ${parrafos[i].textContent}`);
     }
     
 }
