@@ -4,13 +4,13 @@ let edificioA = new Edificio("Garcia Prieto", 58, 15706);
 let edificioB = new Edificio("Camino Caneiro", 29, 32004);
 let edificioC = new Edificio("San Clemente", "s/n", 15705);
 
-alert(
-  `El código postal del edificio A es: ${edificioA.imprimeCodigoPostal()}`
+console.log(
+  `El código postal del edificio A es: ${edificioA.imprimeCp()}`
 );
 
-alert(`La calle del edificio C es: ${edificioC.imprimeCalle()}`);
+console.log(`La calle del edificio C es: ${edificioC.imprimeCalle()}`);
 
-alert(
+console.log(
   `El edificio B está situado en la calle ${edificioB.imprimeCalle()} número ${edificioB.imprimeNumero()}`
 );
 
