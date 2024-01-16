@@ -110,5 +110,9 @@ function crearIframe() {
   iframe.setAttribute("width", "500");
   iframe.setAttribute("height", "500");
 
+  iframe.onload = function() {
+    iframe.contentWindow.miFuncion = iniciar;
+  };
+
   resultados.appendChild(iframe);
 }
