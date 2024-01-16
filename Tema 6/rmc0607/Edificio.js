@@ -28,15 +28,15 @@ export default class Edificio {
   }
 
   imprimeCalle() {
-    return this.calle;
+    return this._calle;
   }
 
   imprimeNumero() {
-    return this.numero;
+    return this._numero;
   }
 
   imprimeCp() {
-    return this.cp;
+    return this._cp;
   }
 
    obtenerNombreCalle(){
@@ -52,14 +52,14 @@ export default class Edificio {
     }
 
   agregarPropietario(nombre, planta, puerta) {
-    this.plantas[planta - 1][puerta - 1] = nombre;
+    this._plantas[planta - 1][puerta - 1] = nombre;
     console.log(
       `${nombre} es ahora el propietario de la puerta ${puerta} de la planta ${planta}.`
     );
   }
 
   imprimePlantas() {
-    this.plantas.forEach((planta, i) => {
+    this._plantas.forEach((planta, i) => {
       planta.forEach((puerta, j) => {
         console.log(
           `Propietario del piso ${j + 1} de la planta ${i + 1}: ${
