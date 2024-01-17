@@ -1,12 +1,8 @@
 import Edificio from "./Edificio.js";
 
-
 window.addEventListener("load", iniciar, false);
 
-
-
-function iniciar(){
-
+function iniciar() {
   let arrEdificios = [];
 
   //Creacion de formularios
@@ -19,7 +15,7 @@ function iniciar(){
 
   let labelCalle = document.createElement("label");
   let textLabelCalle = document.createTextNode("Calle");
-  
+
   let calle = document.createElement("input");
   calle.type = "text";
   calle.id = "calle";
@@ -28,10 +24,8 @@ function iniciar(){
   formulario.appendChild(textLabelCalle);
   formulario.appendChild(calle);
 
-
   let labelNumero = document.createElement("label");
   let textlabelNumero = document.createTextNode("Numero");
-
 
   let numero = document.createElement("input");
   numero.type = "text";
@@ -86,8 +80,6 @@ function iniciar(){
   botonNewEdificio.appendChild(textbotonNewEdificio);
 
   botonNewEdificio.addEventListener("click", crearNuevoEdificio, false);
-
-
 
   //Formulario editar propietario
 
@@ -144,7 +136,7 @@ function iniciar(){
 
   //Formulario para mostrar un edificio
 
-  let divSelectEdificio = document.getElementById("selectEdificio");
+  let divSelectEdificio = document.getElementById("divSelectEdificio");
 
   let formSelectEdificio = document.createElement("form");
   formSelectEdificio.id = "listaEdificios";
@@ -163,25 +155,23 @@ function iniciar(){
   botonSelectEdificio.type = "button";
   botonSelectEdificio.id = "botonSelectEdificio";
   let textbotonSelectEdificio = document.createTextNode("Mostrar el edificio");
-  botonSelectEdificio.addEventListener("click", showEdificio, false)
+  botonSelectEdificio.addEventListener("click", showEdificio, false);
 
   formSelectEdificio.appendChild(botonSelectEdificio);
   botonSelectEdificio.appendChild(textbotonSelectEdificio);
-
 
   //Fin de formularios
 
   //Crear nuevo edificio
 
-  function crearNuevoEdificio(){
-
-    let calle = document.getElementById('calle').value;
-    let numero = document.getElementById('numero').value;
-    let codPostal = document.getElementById('cp').value;
-    let numPlantas = document.getElementById('numPlantas').value;
-    let numPuertas = document.getElementById('numPuertas').value;
+  function crearNuevoEdificio() {
+    let calle = document.getElementById("calle").value;
+    let numero = document.getElementById("numero").value;
+    let codPostal = document.getElementById("cp").value;
+    let numPlantas = document.getElementById("numPlantas").value;
+    let numPuertas = document.getElementById("numPuertas").value;
     if (!calle || !numero || !cp || !numPlantas || !numPuertas) {
-      alert('Por favor, complete todos los campos');
+      alert("Por favor, complete todos los campos");
       return;
     }
 
@@ -192,44 +182,39 @@ function iniciar(){
     actualizarListEdificios();
   }
 
-  function actualizarListEdificios(){
+  function actualizarListEdificios() {
+    let divListEdificios = document.getElementById("showEdificio");
+    let formListEdificios = document.createElement("form");
+    formListEdificios.id = "formListEdificios";
+    divListEdificios.appendChild(formListEdificios);
+    formListEdificios.innerHTML = "";
+    if (selectEdificio != null) selectEdificio.innerHTML = "";
 
-      let divListEdificios = document.getElementById("showEdificio");
-      let formListEdificios = document.createElement("form");
-      formListEdificios.id = "formListEdificios";
-      divListEdificios.appendChild(formListEdificios);
-      formListEdificios.innerHTML = "";
-      if (selectEdificio != null)
-          selectEdificio.innerHTML = '';
+    //Nombre que mostrará el edificio
+    for (let i = 0; i < arrEdificios.length - 1; i++) {
+      let edificio = arrEdificios[i];
+      let direccion = `${edificio.imprimeCalle()}, ${edificio.imprimeNumero()}}`;
 
-      //Nombre que mostrará el edificio
-      for (let i = 0; i < arrEdificios.length -1; i++) {
-        let edificio = arrEdificios[i];
-        let direccion = `${edificio.imprimeCalle()}, ${edificio.imprimeNumero()}}`;
-      
-        let labelInputRadioEdificio= document.createElement('label');
-        labelInputRadioEdificio.for = `edificio${i}`;
-        labelInputRadioEdificio.textContent = direccion;
-        formListEdificios.appendChild(labelInputRadioEdificio);
+      let labelInputRadioEdificio = document.createElement("label");
+      labelInputRadioEdificio.for = `edificio${i}`;
+      labelInputRadioEdificio.textContent = direccion;
+      formListEdificios.appendChild(labelInputRadioEdificio);
 
+      let inputRadioEdificio = document.createElement("input");
+      inputRadioEdificio.type = "radio";
+      inputRadioEdificio.name = "edificioSeleccionado";
+      inputRadioEdificio.id = `edificio${i}`;
+      inputRadioEdificio.value = i;
+      formListEdificios.appendChild(inputRadioEdificio);
 
-        let inputRadioEdificio = document.createElement('input');
-        inputRadioEdificio.type = 'radio';
-        inputRadioEdificio.name = 'edificioSeleccionado';
-        inputRadioEdificio.id = `edificio${i}`;
-        inputRadioEdificio.value = i;
-        formListEdificios.appendChild(inputRadioEdificio);
-
-        let optionInputRadioEdificio = document.createElement('option');
-          optionInputRadioEdificio.value = i;
-          optionInputRadioEdificio.text = direccion;
-            selectEdificio.appendChild(optionInputRadioEdificio);
-
+      let optionInputRadioEdificio = document.createElement("option");
+      optionInputRadioEdificio.value = i;
+      optionInputRadioEdificio.text = direccion;
+      selectEdificio.appendChild(optionInputRadioEdificio);
     }
   }
 
-  function editPropietario(){
-
+  function editPropietario() {
     let planta = parseInt(document.getElementById("numPlantas").value) - 1;
     let puerta = parseInt(document.getElementById("numPuerta").value) - 1;
     let propietario = document.getElementById("propietario").value;
@@ -238,22 +223,24 @@ function iniciar(){
 
     let edificioSelect;
 
-    for(let i = 0; i <= arrEdificios.length; i++){
-      if(document.getElementById(`edificio${i}`).checked){
+    for (let i = 0; i <= arrEdificios.length - 1; i++) {
+      if (document.getElementById(`edificio${i}`).checked) {
         edificioSelect = arrEdificios[i];
-        break /*En este caso necesitamos break porque 
+        break; /*En este caso necesitamos break porque 
                 una vez encontrado el edificio no queremos
                 seguir evaluando */
       }
-
     }
     edificioSelect.agregarPropietario(propietario, planta, puerta);
-    alert(`${propietario} es ahora el propietario del piso en la puerta ${puerta + 1} de la planta ${planta + 1}`);
+    alert(
+      `${propietario} es ahora el propietario del piso en la puerta ${
+        puerta + 1
+      } de la planta ${planta + 1}`
+    );
     actualizarListEdificios();
   }
 
-  function showEdificio(){
-
+  function showEdificio() {
     let seleccionado = document.getElementById("selectEdificio").value;
     let divTabla = document.getElementById("tablaEdificio");
     divTabla.innerHTML = "";
@@ -265,81 +252,78 @@ function iniciar(){
 
     let tabla = document.createElement("table");
 
-    for(let i = 0; i<= edificioSelect.plantas.length -1; i++){
+    for (let i = 0; i <= edificioSelect.plantas.length; i++) {
       let planta = edificioSelect.plantas[i];
       let fila = document.createElement("tr");
 
       let encabezado = document.createElement("th");
-        encabezado.textContent = `Planta ${i + 1}`;
-        fila.appendChild(encabezado);
+      encabezado.textContent = `Planta ${i + 1}`;
+      fila.appendChild(encabezado);
 
-        for(let j = 0; j <= planta.length; j++){
-
-          let celda = document.createElement("td");
-          celda.id = `planta${i}_puerta${j}`;
-          let textoCelda;
-          if (planta[j]) {
-            textoCelda = planta[j];
-          } else {
-            textoCelda = '&nbsp;'.repeat(10);//Genera una cadena de 10 espacios
-          }
-          let texto = document.createElement("span");
-          texto.innerHTML = textoCelda;
-
-          celda.appendChild(texto);
-          fila.appendChild(celda);
-
-          //Evento para poder agregar o modificar un propietario desde la tabla
-
-          celda.addEventListener("click", modPropietario, false);
-
-          function modPropietario(){
-            
-            let input = document.createElement("input");
-            input.value = celda.innerText;
-            let label = document.createElement("label");
-            label.textContent = "Propietario: ";
-            label.appendChild(input);
-
-            celda.innerHTML = '';
-            celda.appendChild(label);
-            input.focus();
-
-            input.addEventListener('keypress', function(event) {
-              if (event.key === 'Enter') {
-                  let propietario = input.value;
-                  
-                  // Obtén la planta y la puerta del propietario separando el ID por "_"
-                  let idCelda = celda.id;
-                  let partesId = idCelda.split('_');
-            
-                  // Comprueba que el ID de la celda tiene la forma correcta
-                  if (partesId.length !== 2) {
-                      console.error(`ID de celda inválido: ${idCelda}`);
-                      return;
-                  }
-                                      
-                  //En  partes[0] encontramos la planta y en la pos 6 encontramos el valor de la planta
-                  let planta = parseInt(partesId[0].substring(6));
-                  let puerta = parseInt(partesId[1].substring(6));
-            
-                  edificioSelect.agregarPropietario(propietario, planta, puerta);
-                  actualizarListEdificios();
-                  
-                  // Eliminar el input y la etiqueta de la celda
-                  celda.innerHTML = '';
-                  celda.textContent = propietario;
-                  console.log(edificios);
-                  //Elimina el input de la celda, dejando el nombre del propietario
-                  celda.innerHTML = '';
-                  celda.textContent = propietario;
-
-              }
-            });
-          }
+      for (let j = 0; j <= planta.length; j++) {
+        let celda = document.createElement("td");
+        celda.id = `planta${i}_puerta${j}`;
+        let textoCelda;
+        if (planta[j]) {
+          textoCelda = planta[j];
+        } else {
+          textoCelda = "&nbsp;".repeat(10); //Genera una cadena de 10 espacios
         }
-        tabla.appendChild(fila);
+        let texto = document.createElement("span");
+        texto.innerHTML = textoCelda;
+
+        celda.appendChild(texto);
+        fila.appendChild(celda);
+
+        //Evento para poder agregar o modificar un propietario desde la tabla
+
+        celda.addEventListener("click", modPropietario, false);
+
+        function modPropietario() {
+          let input = document.createElement("input");
+          input.value = celda.innerText;
+          let label = document.createElement("label");
+          label.textContent = "Propietario: ";
+          label.appendChild(input);
+
+          celda.innerHTML = "";
+          celda.appendChild(label);
+          input.focus();
+
+          input.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+              let propietario = input.value;
+
+              // Obtén la planta y la puerta del propietario separando el ID por "_"
+              let idCelda = celda.id;
+              let partesId = idCelda.split("_");
+
+              // Comprueba que el ID de la celda tiene la forma correcta
+              if (partesId.length !== 2) {
+                console.error(`ID de celda inválido: ${idCelda}`);
+                return;
+              }
+
+              //En  partes[0] encontramos la planta y en la pos 6 encontramos el valor de la planta
+              let planta = parseInt(partesId[0].substring(6));
+              let puerta = parseInt(partesId[1].substring(6));
+
+              edificioSelect.agregarPropietario(propietario, planta, puerta);
+              actualizarListEdificios();
+
+              // Eliminar el input y la etiqueta de la celda
+              celda.innerHTML = "";
+              celda.textContent = propietario;
+              console.log(edificios);
+              //Elimina el input de la celda, dejando el nombre del propietario
+              celda.innerHTML = "";
+              celda.textContent = propietario;
+            }
+          });
+        }
+      }
+      tabla.appendChild(fila);
     }
     divTabla.appendChild(tabla);
   }
-} 
+}
