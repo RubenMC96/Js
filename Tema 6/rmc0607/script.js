@@ -161,7 +161,12 @@ function iniciar() {
   botonSelectEdificio.appendChild(textbotonSelectEdificio);
 
   //Fin de formularios
-
+  /*-------------------------------------------------------------------------*/
+  /*-------------------------------------------------------------------------*/
+  /*-------------------------------------------------------------------------*/
+  /*-------------------------------------------------------------------------*/
+  /*-------------------------------------------------------------------------*/
+  /*-------------------------------------------------------------------------*/
   //Crear nuevo edificio
 
   function crearNuevoEdificio() {
@@ -191,9 +196,9 @@ function iniciar() {
     if (selectEdificio != null) selectEdificio.innerHTML = "";
 
     //Nombre que mostrará el edificio
-    for (let i = 0; i < arrEdificios.length - 1; i++) {
+    for (let i = 0; i < arrEdificios.length; i++) {
       let edificio = arrEdificios[i];
-      let direccion = `${edificio.imprimeCalle()}, ${edificio.imprimeNumero()}}`;
+      let direccion = `${edificio.imprimeCalle()}, ${edificio.imprimeNumero()}`;
 
       let labelInputRadioEdificio = document.createElement("label");
       labelInputRadioEdificio.for = `edificio${i}`;
@@ -215,8 +220,8 @@ function iniciar() {
   }
 
   function editPropietario() {
-    let planta = parseInt(document.getElementById("numPlantas").value) - 1;
-    let puerta = parseInt(document.getElementById("numPuerta").value) - 1;
+    let planta = parseInt(document.getElementById("numeroPlanta").value) -1;
+    let puerta = parseInt(document.getElementById("numeroPuerta").value) -1;
     let propietario = document.getElementById("propietario").value;
 
     //Obtener el edificio seleccionado
@@ -252,15 +257,15 @@ function iniciar() {
 
     let tabla = document.createElement("table");
 
-    for (let i = 0; i <= edificioSelect.plantas.length; i++) {
-      let planta = edificioSelect.plantas[i];
+    for (let i = 0; i <= edificioSelect._plantas.length -1; i++) {
+      let planta = edificioSelect._plantas[i];
       let fila = document.createElement("tr");
 
       let encabezado = document.createElement("th");
       encabezado.textContent = `Planta ${i + 1}`;
       fila.appendChild(encabezado);
 
-      for (let j = 0; j <= planta.length; j++) {
+      for (let j = 0; j <= planta.length -1; j++) {
         let celda = document.createElement("td");
         celda.id = `planta${i}_puerta${j}`;
         let textoCelda;

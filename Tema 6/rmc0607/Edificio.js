@@ -11,9 +11,14 @@ export default class Edificio {
 
   agregarPlantasYPuertas(numPlantas, numPuertas) {
     for (let i = 0; i < numPlantas; i++) {
-      this._plantas.push(new Array(numPuertas).fill(null));
+      let planta = { puertas: [] };
+        for(let j = 0; j < numPuertas; j++) {
+            planta.puertas.push(null);
+        }
+        this._plantas.push(planta);
     }
   }
+
 
   modificarNumero(numero) {
     this.numero = numero;
@@ -51,12 +56,24 @@ export default class Edificio {
     return this._plantas[numPlanta - 1];
     }
 
+
+  /*agregarPropietario(nombre, planta, puerta) {
+    this._plantas[planta].puertas[puerta] = nombre;
+    console.log(`${nombre} es ahora el propietario del piso ${puerta + 1} en la planta ${planta + 1}`);
+  }*/
+
   agregarPropietario(nombre, planta, puerta) {
-    this._plantas[planta - 1][puerta - 1] = nombre;
-    console.log(
-      `${nombre} es ahora el propietario de la puerta ${puerta} de la planta ${planta}.`
-    );
-  }
+    if (this._plantas[planta]) {
+      this._plantas[planta].puertas[puerta] = nombre;
+      console.log(`${nombre} es ahora el propietario del piso ${puerta + 1} en la planta ${planta + 1}`);
+    } 
+    else {
+      console.log(`No existe la planta ${planta + 1}`);
+    }
+   }
+
+
+
 
   imprimePlantas() {
     this._plantas.forEach((planta, i) => {
@@ -69,5 +86,13 @@ export default class Edificio {
       });
     });
   }
+
+  imprimirPropietarios() {
+    for (let i = 0; i < this._plantas.length; i++) {
+        for (let j = 0; j < this._plantas[i].puertas.length; j++) {
+            console.log(`Propietario del piso ${j + 1} de la planta ${i + 1}: ${this._plantas[i].puertas[j]}`);
+        }
+    }
+}
 }
 export { Edificio };
