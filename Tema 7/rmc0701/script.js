@@ -1,36 +1,32 @@
-
 window.addEventListener("load", inicio, true);
+
+let clientes = [];
+let tabla = document.getElementById("tablaClientes");
 
 function inicio() {
   document.getElementById("tablaClientes");
 
-  document.getElementById("enviar").addEventListener("click", cargarLista, true);
+  document.getElementById("enviar").addEventListener("click", ejecuta, true);
 }
 
-function cargarLista(){
+function mostrar() {
   let xhr = new XMLHttpRequest();
-  xhr.addEventListener("readystatechange", function(){
-    if(this.readyState == 4 && this.status == 200){
-      cargarCliente(this);
+  xhr.addEventListener("readystatechange", function () {
+    if (this.readyState == 4 && this.status == 200) {
+      let json = this.response;
+      clientes = [...json];
+
+      ejecuta();
     }
-  } ,false)
-  xhr.open("GET", "clientes.xml", true);
-  xhr.send();
+  });
 }
 
-
-
-
-function cargarCliente(xml) {
+function ejecuta() {
   let opcion = document.getElementById("opcion").value;
-  let docXML = xml.responseXML;
-  let clientes = docXML.getElementsByTagName("cliente");
 
   switch (opcion) {
     case "1":
-      document.getElementById(
-        "tablaClientes"
-      ).innerHTML = `<table> <tr><td> Nombre</td><td> Localidad </td> <td> Cuota</td> <tr/>`;
+      tabla.innerHTML = `<table> <tr><td> Nombre</td><td> Localidad </td> <td> Cuota</td> <tr/>`;
       for (let i = 0; i < clientes.length; i++) {
         showLista(i);
       }
@@ -41,7 +37,7 @@ function cargarCliente(xml) {
     case "2":
       document.getElementById(
         "tablaClientes"
-      ).innerHTML = `<table> <tr><td> Nombre</td><td>Cuota</td> <tr/>`;//Forma de generar elementos en HTML
+      ).innerHTML = `<table> <tr><td> Nombre</td><td>Cuota</td> <tr/>`; //Forma de generar elementos en HTML
       filtroLocalidad();
       document.getElementById("tablaClientes").innerHTML += `</table>`;
       break;
@@ -78,7 +74,7 @@ function filtroLocalidad() {
 
 function filtroCuota() {
   let cuotaMinima = Number(prompt("Introduce la cuota mínima"));
-  let clientesCuota = clientes.filter((cliente) => cliente.cuota > cuotaMinima);//Filtrar
+  let clientesCuota = clientes.filter((cliente) => cliente.cuota > cuotaMinima); //Filtrar
   clientesCuota.forEach((cliente) => {
     document.getElementById(
       "tablaClientes"
