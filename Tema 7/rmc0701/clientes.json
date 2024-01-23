@@ -1,37 +1,37 @@
 [
   {
     "nombre": "Laura",
-    "ciudad": "Santander",
+    "localidad": "Santander",
     "cuota": "50"
   },
   {
     "nombre": "Álvaro",
-    "ciudad": "Castro",
+    "localidad": "Castro",
     "cuota": "50"
   },
   {
     "nombre": "Igor",
-    "ciudad": "Castro",
+    "localidad": "Castro",
     "cuota": "60"
   },
   {
     "nombre": "Ivan",
-    "ciudad": "Santander",
+    "localidad": "Santander",
     "cuota": "40"
   },
   {
     "nombre": "Mónica",
-    "ciudad": "Zamora",
+    "localidad": "Zamora",
     "cuota": "30"
   },
   {
     "nombre": "Javi",
-    "ciudad": "Bilbao",
+    "localidad": "Bilbao",
     "cuota": "30"
   },
   {
     "nombre": "David",
-    "ciudad": "Bilbao",
+    "localidad": "Bilbao",
     "cuota": "50"
   }
 ]

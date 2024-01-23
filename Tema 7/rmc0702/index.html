@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 7_2</title>
+    <script src="script.js" type="module" defer></script>
+  </head>
+    <h1>CRUD amacén de discos</h1>
+
+    <form id="formDisco">
+        <label for="nombre"> Nombre:
+            <input type="text" id="nombre" placeholder="Nombre del disco" /><br/>
+        </label>
+        <label>Grupo:
+            <input type="text" id="grupo" placeholder="Nombre del grupo" /><br/>
+        </label>
+      <select id="tipo" placeholder="Seleccione un género">
+        <option value="pop">Pop</option>
+        <option value="indie">Indie</option>
+        <option value="flamenco">Flamenco</option>
+        <option value="rock">Rock</option>
+        <option value="intrumental">Intrumental</option>
+      </select><br/>
+      <input type="text" id="caratula" placeholder="Carátula" /><br/>
+      <input type="text" id="anno" placeholder="Año de publicación del disco" /><br/>
+      <input type="number" id="local" placeholder="Número de estantería" /><br/>
+      <select id="prestamo" placeholder="Seleccioneestado del prestamo">
+        <option value="Prestado">Prestado</option>
+        <option value="No_Prestado">No Prestado</option>
+      </select><br/>
+      <button type="submit" id="add">Añadir disco</button>
+    </form><br/><br/>
+
+    <div id="tdiscos"></div>
+
+    <button id="showTotal">Mostrar el número de discos</button>
+    <button id="showTabla">Mostrar todos los discos</button>
+    <button id="showInterval">Filtrar por año de publicación</button>
+    <button id="borrarDisco">Borrar un disco</button>
+    <button id="showDisco">Consultar un disco</button><br>
+
+    <span id="show"></span>
+  </body>
+</html>
