@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<discos>
+ <disco>
+    <nombre>Empire Burlesque</nombre>
+    <grupo>Bob Dylan</grupo>
+    <anno>1985</anno>
+    <tipo>Rock</tipo>
+    <localizacion>1</localizacion>
+    <prestado>False</prestado>
+    <caratula>empire.png</caratula>
+ </disco>
+ <disco>
+    <nombre>Hide your heart</nombre>
+    <grupo>Bonnie Tyler</grupo>
+    <anno>1988</anno>
+    <tipo>Pop</tipo>
+    <localizacion>2</localizacion>
+    <prestado>True</prestado>
+    <caratula>hide.png</caratula>
+ </disco>
+ <disco>
+    <nombre>Greatest Hits</nombre>
+    <grupo>Dolly Parton</grupo>
+    <anno>1982</anno>
+    <tipo>Country</tipo>
+    <localizacion>1</localizacion>
+    <prestado>True</prestado>
+    <caratula>greatest.png</caratula>
+ </disco>
+ <disco>
+    <nombre>Still got the blues</nombre>
+    <grupo>Gary Moore</grupo>
+    <anno>1990</anno>
+    <tipo>Blues</tipo>
+    <localizacion>3</localizacion>
+    <prestado>False</prestado>
+    <caratula>still.png</caratula>
+ </disco>
+</discos>

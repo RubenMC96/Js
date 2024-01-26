@@ -4,7 +4,7 @@ window.addEventListener("load", inicio, false);
 function inicio(){
 
   let xhr = new XMLHttpRequest();
-  xhr.responseType("xml");
+  xhr.responseType = "xml";
   xhr.addEventListener("readystatechange", function(){
     if(this.readyState == 4 && this.status == 200){
       cargarXML(this);
@@ -12,10 +12,24 @@ function inicio(){
   } ,false);
 
   xhr.open("GET","https://randomuser.me/api/?results=5&format=XML",true);
+  xhr.send();
 
 }
 
+function cargarXML(xml){
 
+  let documentoXML = xml.responseXML;
+  let imagenes = documentoXML.getElementsByTagName("results");
+
+  for(let i = 0; i <= imagenes.length -1; i++){
+    let email = imagenes[i].getElementsByTagName("email")[0].textContent;
+    let foto = imagenes[i].getElementsByTagName("medium")[0].textContent; 
+
+    document.getElementsByClassName("frontFace")[i].src = foto;
+    document.getElementsByClassName("textEmail")[i].innerHTML = email;
+
+  }
+}
 
 
 
