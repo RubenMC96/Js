@@ -5,20 +5,19 @@ window.addEventListener("load", inicio, false);
 
 let discos = [];
 
-async function inicio(){
-  try{
+async function inicio() {
+  try {
     let response = await fetch("Discos.xml");
     let xml = await response.text();
-    cargarXML(new DOMParser().parseFromString(xml, "application/xml"));
-  }catch(error){
+    let parser = new DOMParser();
+    cargarXML(parser.parseFromString(xml, "application/xml"));
+  } catch (error) {
     alert("Se ha producido un error");
   }
 }
 
-
-
 function cargarXML(xml) {
-  let documento = xml.responseXML;
+  let documento = xml;
   let discosXML = documento.getElementsByTagName("disco");
 
   for (let i = 0; i < discosXML.length; i++) {

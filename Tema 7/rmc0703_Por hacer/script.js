@@ -1,109 +1,114 @@
-
 window.addEventListener("load", inicio, false);
 
-function inicio(){
-
+function inicio() {
   let xhr = new XMLHttpRequest();
   xhr.responseType = "xml";
-  xhr.addEventListener("readystatechange", function(){
-    if(this.readyState == 4 && this.status == 200){
-      cargarXML(this);
-    }
-  } ,false);
+  xhr.addEventListener(
+    "readystatechange",
+    function () {
+      if (this.readyState == 4 && this.status == 200) {
+        cargarXML(this);
+      }
+    },
+    false
+  );
 
-  xhr.open("GET","https://randomuser.me/api/?results=5&format=XML",true);
+  xhr.open("GET", "https://randomuser.me/api/?results=6&format=XML", true);
   xhr.send();
-
 }
 
-function cargarXML(xml){
-
+function cargarXML(xml) {
   let documentoXML = xml.responseXML;
-  let imagenes = documentoXML.getElementsByTagName("results");
+  let personas = documentoXML.getElementsByTagName("results");
+  let imagenes = documentoXML.getElementsByTagName("medium");
+  let correos = documentoXML.getElementsByTagName("email");
 
-  for(let i = 0; i <= imagenes.length -1; i++){
-    let email = imagenes[i].getElementsByTagName("email")[0].textContent;
-    let foto = imagenes[i].getElementsByTagName("medium")[0].textContent; 
+  for (let x = 0; x < 2; x++) {
+    for (let i = 0; i < 6; i++) {
+      correos.push(personas[i].getElementsByTagName("email")[0].textContent);
+      imagenes.push(
+        personas[i]
+          .getElementsByTagName("picture")[0]
+          .getElementsByTagName("large")[0].textContent
+      );
+    }
+  }
+
+  for (let i = 0; i <= imagenes.length - 1; i++) {
+    let email = correos[0].textContent;
+    let foto = personas[0].textContent;
 
     document.getElementsByClassName("frontFace")[i].src = foto;
     document.getElementsByClassName("textEmail")[i].innerHTML = email;
-
   }
 }
-
-
-
 
 let cards = document.querySelectorAll(".memoryCard");
 
 let hasFlipCard = false;
 let blockCard = false;
-let frsCard
+let frsCard;
 let scdCard;
 
-
 function voltear() {
-  if(blockCard){
+  if (blockCard) {
     return true;
   }
-  if(this === frsCard){
+  if (this === frsCard) {
     return true;
   }
   this.classList.add("flip"); //this.classList es la tarjeta en la que se hace click.
 
-  if(!hasFlipCard){
-
+  if (!hasFlipCard) {
     hasFlipCard = true;
     frsCard = this;
 
     return true;
   }
-  
+
   scdCard = this;
 
   checkForMatch();
 }
 
-function checkForMatch(){
-
-  if(frsCard.dataset.lenguaje === scdCard.dataset.lenguaje){
+function checkForMatch() {
+  if (frsCard.dataset.lenguaje === scdCard.dataset.lenguaje) {
     disableCard();
     return true;
   }
   unflipCards();
 }
 
-function disableCard(){
+function disableCard() {
   frsCard.removeEventListener("click", voltear);
   scdCard.removeEventListener("click", voltear);
   resetBoard();
 }
 
-function unflipCards(){
+function unflipCards() {
   blockCard = true;
-  setTimeout(() =>{
+  setTimeout(() => {
     frsCard.classList.remove("flip");
     scdCard.classList.remove("flip");
 
     resetBoard();
-  },1500);
+  }, 1500);
 }
 
-function resetBoard(){
+function resetBoard() {
   frsCard = null;
   scdCard = null;
   hasFlipCard = null;
   blockCard = null;
 }
 
-(function shuffle(){
-  cards.forEach(card =>{
-    let posRamdom = Math.floor(Math.random()*12);
+(function shuffle() {
+  cards.forEach((card) => {
+    let posRamdom = Math.floor(Math.random() * 12);
     card.style.order = posRamdom;
   });
 })();
 /* 
 Para ejecutar la funcion de forma inmediata hay que envolver la funcion entre paréntesis y despues ejecutarla con la llamada ();*/
-
 
 cards.forEach((card) => card.addEventListener("click", voltear));
