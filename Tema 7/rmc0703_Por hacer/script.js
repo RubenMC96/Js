@@ -2,7 +2,6 @@ window.addEventListener("load", inicio, false);
 
 function inicio() {
   let xhr = new XMLHttpRequest();
-  xhr.responseType = "xml";
   xhr.addEventListener(
     "readystatechange",
     function () {
@@ -13,34 +12,32 @@ function inicio() {
     false
   );
 
-  xhr.open("GET", "https://randomuser.me/api/?results=6&format=XML", true);
+  xhr.open("GET","https://randomuser.me/api/?results=6&format=XML",true);
   xhr.send();
 }
 
 function cargarXML(xml) {
   let documentoXML = xml.responseXML;
   let personas = documentoXML.getElementsByTagName("results");
-  let imagenes = documentoXML.getElementsByTagName("medium");
-  let correos = documentoXML.getElementsByTagName("email");
+  let fotos = [];
+  let correos = [];
 
-  for (let x = 0; x < 2; x++) {
-    for (let i = 0; i < 6; i++) {
-      correos.push(personas[i].getElementsByTagName("email")[0].textContent);
-      imagenes.push(
-        personas[i]
-          .getElementsByTagName("picture")[0]
-          .getElementsByTagName("large")[0].textContent
-      );
+  for(let i = 0; i<2; i++){
+    for(let j = 0; j<= personas.length-2; j++){
+
+      fotos.push(personas[j].getElementsByTagName("medium")[0].textContent);
+      correos.push(personas[j].getElementsByTagName("email")[0].textContent);
     }
   }
+  let tarjetas = document.getElementsByClassName("frontFace");
+  let emails = document.getElementsByClassName("textEmail"); 
 
-  for (let i = 0; i <= imagenes.length - 1; i++) {
-    let email = correos[0].textContent;
-    let foto = personas[0].textContent;
-
-    document.getElementsByClassName("frontFace")[i].src = foto;
-    document.getElementsByClassName("textEmail")[i].innerHTML = email;
+  for(let i = 0; i <= fotos.length -1; i++){
+    tarjetas[i].src = fotos[i];
+    tarjetas[i].title = correos[i];
   }
+
+  
 }
 
 let cards = document.querySelectorAll(".memoryCard");
