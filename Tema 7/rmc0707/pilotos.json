@@ -1,5 +1,4 @@
-{
-    "pilotos":[
+[
         {
             "nombre": "Lewis Hamilton",
             "equipo": "Mercedes AMG",
@@ -140,5 +139,4 @@
             "nacionalidad": "China",
             "campeonatos": 0
         }
-    ]
-}
+]

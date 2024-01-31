@@ -1,34 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Datos de F1</title>
-    <script src="script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="script.js"defer></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Datos de los pilotos de F1</h1>
 
-    <table border="2px">
-        <tr>
-          <th>Opciones</th>
-        </tr>
-        <tr>
-          <td><span>1.Mostrar todos los pilotos</span></td>
-        </tr>
-        <tr>
-          <td><span>2.Ordenar por nombre o equipo ascendente</span></td>
-        </tr>
-        <tr>
-          <td><span>3.Filtrar por nacionalidad</span></td>
-        </tr>
-        <tr>
-          <td><span>4.Destacar piloto</span></td>
-        </tr>
-      </table>
+<table id="tabla"></table>
 
-      <input type="text" id="opcion" />
-    <button id="enviar">Enviar</button><br />
-    <table border="1px" id="tablaPilotos"></table>
+<button id="ordenarNombre">Ordenar por nombre</button>
+<button id="ordenarEquipo">Ordenar por equipo</button>
+<label for="nacionalidad">Filtrar por nacionalidad
+  <input type="text" id="nacionalidad">
+  <button id="enviar">Enviar</button>
+</label>
+<button id="paginaAnterior">Página Anterior</button>
+ <button id="paginaSiguiente">Página Siguiente</button>
 </body>
 </html>
