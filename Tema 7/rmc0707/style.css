@@ -6,3 +6,7 @@ th, td {
     border: 1px solid black;
     text-align: left;
 }
+.destacado{
+    border: 2px solid gray;
+    background-color: darkkhaki;
+}
