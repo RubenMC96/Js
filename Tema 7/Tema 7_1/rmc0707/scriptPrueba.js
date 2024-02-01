@@ -1,5 +1,6 @@
 let pilotos = [];
-
+let totalPaginas;
+let listaActual;
 let tabla = document.getElementById("tabla");
 window.addEventListener("load", iniciar, false);
 
@@ -8,6 +9,8 @@ async function iniciar(){
     let response = await fetch("pilotos.json");
     let json = await response.json();
     pilotos = [...json];
+    listaActual = [...pilotos];
+    totalPaginas = Math.ceil((pilotos.length) / numPilotosPorPagina);
     console.log('Datos cargados:', pilotos);
     mostrarPilotos(pilotos);
  } catch (error) {
@@ -61,8 +64,8 @@ function mostrarPilotos(lista) {
 
  document.getElementById("ordenarNombreDsc").addEventListener("click",ordenarNombre, false);
  function ordenarNombre() {
-  let ordenadaDsc = [...pilotos];
-  ordenadaDsc.sort((a, b) => {
+  listaActual = [...pilotos];
+  listaActual.sort((a, b) => {
           let nombreA = a.nombre.toUpperCase();
           let nombreB = b.nombre.toUpperCase();
           if (nombreA < nombreB) {
@@ -74,16 +77,15 @@ function mostrarPilotos(lista) {
           return 0;
       });
       
-  mostrarPilotos(ordenadaDsc);
-  pasarLista(ordenadaDsc);
+  mostrarPilotos(listaActual);
   }
  document.getElementById("ordenarNombreAsc").addEventListener("click",ordenarNombreAsc, false);
  function ordenarNombreAsc() {
 
  
-  let ordenadaAsc = [...pilotos];
+  listaActual = [...pilotos];
   
-  ordenadaAsc.sort((a,b) => {
+  listaActual.sort((a,b) => {
           let nombreA = a.nombre.toUpperCase();
           let nombreB = b.nombre.toUpperCase();
           if (nombreA > nombreB) {
@@ -94,16 +96,14 @@ function mostrarPilotos(lista) {
           }
           return 0;
       });
-      mostrarPilotos(ordenadaAsc);
-      pasarLista(ordenadaAsc);
-  
+      mostrarPilotos(listaActual);  
   }
  document.getElementById("ordenarEquipoDsc").addEventListener("click",ordenarEquipo, false);
  function ordenarEquipo() {
 
  
-  let ordenadaEquipoDsc = [...pilotos];
-  ordenadaEquipoDsc.sort((a, b) => {
+  listaActual = [...pilotos];
+  listaActual.sort((a, b) => {
           let equipoA = a.equipo.toUpperCase();
           let equipoB = b.equipo.toUpperCase();
           if (equipoA < equipoB) {
@@ -115,16 +115,15 @@ function mostrarPilotos(lista) {
           return 0;
       });
       
-      mostrarPilotos(ordenadaEquipoDsc);
-      pasarLista(ordenadaEquipoDsc);
+      mostrarPilotos(listaActual);
   }
  document.getElementById("ordenarEquipoAsc").addEventListener("click",ordenarEquipoAsc, false);
  function ordenarEquipoAsc() {
 
  
-  let ordenadaEquipoAsc = [...pilotos];
+  let listaActual = [...pilotos];
 
-  ordenadaEquipoAsc.sort((a,b) => {
+  listaActual.sort((a,b) => {
           let equipoA = a.equipo.toUpperCase();
           let equipoB = b.equipo.toUpperCase();
           if (equipoA > equipoB) {
@@ -136,8 +135,7 @@ function mostrarPilotos(lista) {
           return 0;
       });
       
-  mostrarPilotos(ordenadaEquipoAsc);
-  pasarLista(ordenadaEquipoAsc);
+  mostrarPilotos(listaActual);
   }
 
   
@@ -155,16 +153,60 @@ function mostrarPilotos(lista) {
  **PAGINACION
 ****************************************************************/
 
+// let listaPaginada = document.getElementById("paginacion");
+
+// function paginarPilotos(pagina){
+// if(pagina <1){
+//   pagina = 1;
+// }
+// if(pagina > totalPaginas){
+//   pagina = totalPaginas;
+// }
+// listaPaginada.innerHTML= "";
+
+// for(let i = ((pagina - 1) * numPilotosPorPagina); i <= numPilotosPorPagina * pagina; i++){
+//   if(i < pilotos.length){
+//     listaPaginada.innerHTML += pilotos[i].nombre +"<br>" ;
+//   }
+//   else{
+//     listaPaginada .innerHTML = "";
+//   }
+// }
+
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 let numPilotosPorPagina = 3;
-let totalPaginas = Math.ceil((pilotos.length) / numPilotosPorPagina);
+
 //totalPaginas devuelve 0¿?
 let pagActual = 1;
 let paginaDestino = 1;
 //tambien devuelven 0
 
-function pasarLista(lista){
-  return lista;
-}
 
   document.getElementById("paginaAnterior").addEventListener("click",pagAnterior, false);
   document.getElementById("paginaSiguiente").addEventListener("click",pagSiguiente, false);
@@ -177,7 +219,7 @@ function pasarLista(lista){
       paginaDestino -= 1;
     }
   
-    paginar(pasarLista,paginaDestino);
+    paginar(listaActual);
   }
   function pagSiguiente(){
     if(pagActual >= totalPaginas ){
@@ -186,11 +228,11 @@ function pasarLista(lista){
     else{
       paginaDestino += 1;
     }
-    paginar(pasarLista,paginaDestino);
+    paginar(listaActual);
   }
-function paginar(lista, pagina){
+function paginar(lista){
  
-  let inicio = (pagina - 1) * numPilotosPorPagina;
+  let inicio = (paginaDestino - 1) * numPilotosPorPagina;
   let fin = inicio + numPilotosPorPagina;
   let pilotosPorMostrar = lista.slice(inicio, fin);
   mostrarPilotos(pilotosPorMostrar);
