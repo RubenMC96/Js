@@ -16,7 +16,7 @@ async function iniciar(){
  }
 
 }
-function mostrarPilotos(lista, pagina) {
+function mostrarPilotos(lista) {
   // Recorre la ordenadaDsc de pilotos
   
   tabla.innerHTML = '<tr><th>Nombre</th><th>Equipo</th><th>Numero</th><th>Nacionalidad</th><th>Campeonatos</th>'
@@ -156,43 +156,47 @@ function mostrarPilotos(lista, pagina) {
 ****************************************************************/
 
 let numPilotosPorPagina = 3;
-let totalPilotos = pilotos.length;
-let totalPaginas = Math.ceil(totalPilotos / numPilotosPorPagina);
+let totalPaginas = Math.ceil((pilotos.length) / numPilotosPorPagina);
+//totalPaginas devuelve 0¿?
 let pagActual = 1;
-let paginaDestino;
+let paginaDestino = 1;
+//tambien devuelven 0
 
 function pasarLista(lista){
+  return lista;
+}
+
   document.getElementById("paginaAnterior").addEventListener("click",pagAnterior, false);
   document.getElementById("paginaSiguiente").addEventListener("click",pagSiguiente, false);
   
   function pagAnterior(){
-    if(pagActual <1 ){
+    if(pagActual <= 1 ){
       paginaDestino = 1;
     }
     else{
-      paginaDestino -= pagActual -1;
+      paginaDestino -= 1;
     }
   
-    paginar(lista,paginaDestino);
+    paginar(pasarLista,paginaDestino);
   }
   function pagSiguiente(){
-    if(pagActual > totalPaginas ){
+    if(pagActual >= totalPaginas ){
       paginaDestino = totalPaginas;
     }
     else{
-      paginaDestino += pagActual +1;
+      paginaDestino += 1;
     }
-    paginar(lista,paginaDestino);
+    paginar(pasarLista,paginaDestino);
   }
-}
-
 function paginar(lista, pagina){
-
-
-
-
-  mostrarPilotos(lista, pagina);
+ 
+  let inicio = (pagina - 1) * numPilotosPorPagina;
+  let fin = inicio + numPilotosPorPagina;
+  let pilotosPorMostrar = lista.slice(inicio, fin);
+  mostrarPilotos(pilotosPorMostrar);
 }
 
+ 
 
 
+ 
