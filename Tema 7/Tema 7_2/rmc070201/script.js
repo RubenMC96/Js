@@ -1,22 +1,5 @@
-window.addEventListener("load", inicio, false);
-
-/*function inicio() {
-  let xhr = new XMLHttpRequest();
-  xhr.addEventListener(
-    "readystatechange",
-    function () {
-      if (this.readyState == 4 && this.status == 200) {
-        cargarXML(this);
-      }
-    },
-    false
-  );
-
-  xhr.open("GET","https://randomuser.me/api/?results=6&format=XML",true);
-  xhr.send();
-}*/
-
-
+//window.addEventListener("load", inicio, false);
+$(document).ready(function(){
 async function inicio(){
   try{
     let response = await fetch("https://randomuser.me/api/?results=6&format=XML");
@@ -27,6 +10,11 @@ async function inicio(){
     alert("Se ha producido un error");
   }
 }
+});
+
+
+
+
 
 function cargarXML(xml) {
   let documentoXML = xml;
