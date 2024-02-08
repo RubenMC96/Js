@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 $(document).ready(function() {
   inicio();
@@ -15,7 +16,25 @@ function inicio() {
       alert("Se ha producido un error");
     }
   });
+=======
+//window.addEventListener("load", inicio, false);
+$(document).ready(function(){
+async function inicio(){
+  try{
+    let response = await fetch("https://randomuser.me/api/?results=6&format=XML");
+    let xml = await response.text();
+    let parser = new DOMParser();
+    cargarXML(parser.parseFromString(xml, "application/xml"));
+  }catch(error){
+    alert("Se ha producido un error");
+  }
+>>>>>>> 26d5e79b662b3d713bee1ece242a32ab1c5686f8
 }
+});
+
+
+
+
 
 function cargarXML(xml) {
   var $xml = $(xml);
