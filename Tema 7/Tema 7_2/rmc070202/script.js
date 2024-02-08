@@ -1,8 +1,9 @@
 $(document).ready(crearZonaDibujo);
 
-const zonaDibujo = $("#zonadibujo");
-const coloresPaleta = $("#paleta tr:first-child td");
-const textoEstadoPincel = $("#textoEstadoPincel");
+
+let zonaDibujo = $("#zonadibujo");
+let coloresPaleta = $("#paleta tr:first-child td");
+let textoEstadoPincel = $("#textoEstadoPincel");
 
 let estadoPincel = false;
 let colorSeleccionado;
@@ -13,13 +14,17 @@ function crearZonaDibujo() {
   let anchoCelda =  10;
   let altoCelda =  10;
 
-  let tabla = $("<table>").attr("id", "tablaNueva");
+  let tabla = $("<table />").attr("id", "tablaNueva");
 
   for (let i =  1; i <= numeroLineas; i++) {
-    let fila = $("<tr>");
+    let fila = $("<tr />");
 
     for (let j =  1; j <= numeroColumnas; j++) {
-      let celda = $("<td>").css({ width: anchoCelda + "px", height: altoCelda + "px" });
+      let celda = $("<td />").css({
+        width: anchoCelda + "px",
+        height: altoCelda + "px"
+      });
+
       fila.append(celda);
     }
 
@@ -27,7 +32,6 @@ function crearZonaDibujo() {
   }
 
   zonaDibujo.append(tabla);
-
   inicio();
 }
 
@@ -35,19 +39,16 @@ function inicio() {
   coloresPaleta.on("click", asignarColorPincel);
 }
 
-function asignarColorPincel(event) {
+function asignarColorPincel(e) {
   if (estadoPincel) {
-    estadoPincel = !estadoPincel;
+    estadoPincel = false;
     textoEstadoPincel.text("PINCEL DESACTIVADO");
   }
 
   coloresPaleta.removeClass("seleccionado");
+  colorSeleccionado = $(e.currentTarget).addClass("seleccionado").attr("class");
 
-  colorSeleccionado = $(event.target).attr("class");
-
-  $(event.target).addClass("seleccionado");
-
-  $("#tablaNueva td").on("click", asignarEstadoPincel);
+  $("#tablaNueva td").off("click mouseover").on("click", asignarEstadoPincel);
 }
 
 function asignarEstadoPincel() {
@@ -61,8 +62,8 @@ function asignarEstadoPincel() {
   }
 }
 
-function pintar(event) {
+function pintar(e) {
   if (estadoPincel) {
-    $(event.target).addClass(colorSeleccionado);
+    $(e.currentTarget).addClass(colorSeleccionado);
   }
 }

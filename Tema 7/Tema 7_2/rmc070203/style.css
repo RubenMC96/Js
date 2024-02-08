@@ -1,0 +1,7 @@
+li{
+    list-style-type: none;
+}
+#nombreEquipo,#PJugados,#PGanados,#PPerdidos,#PEmpatados{
+    font-weight: bolder;
+    font-size: 1.2em;
+}

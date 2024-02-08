@@ -1,64 +1,41 @@
-<<<<<<< HEAD
 
-$(document).ready(function() {
-  inicio();
-});
+$(document).ready(inicio);
+
 
 function inicio() {
-  $.ajax({
-    url: "https://randomuser.me/api/?results=6&format=XML",
-    type: "GET",
-    dataType: "xml", // Specify the data type expected from the server
-    success: function(xml) {
-      cargarXML(xml);
+  let xhr = new XMLHttpRequest();
+  xhr.addEventListener(
+    "readystatechange",
+    function () {
+      if (this.readyState == 4 && this.status == 200) {
+        cargarXML(this);
+      }
     },
-    error: function() {
-      alert("Se ha producido un error");
-    }
-  });
-=======
-//window.addEventListener("load", inicio, false);
-$(document).ready(function(){
-async function inicio(){
-  try{
-    let response = await fetch("https://randomuser.me/api/?results=6&format=XML");
-    let xml = await response.text();
-    let parser = new DOMParser();
-    cargarXML(parser.parseFromString(xml, "application/xml"));
-  }catch(error){
-    alert("Se ha producido un error");
-  }
->>>>>>> 26d5e79b662b3d713bee1ece242a32ab1c5686f8
+    false
+  );
+
+  xhr.open("GET","https://randomuser.me/api/?results=6&format=XML",true);
+  xhr.send();
 }
-});
-
-
-
-
 
 function cargarXML(xml) {
-  var $xml = $(xml);
-  var personas = $xml.find("result");
-  var fotos = [];
-  var correos = [];
+  let documentoXML = xml.responseXML;
+  let personas = documentoXML.getElementsByTagName("results");
+  let fotos = [];
 
-  // Assuming that 'result' is the correct tag name in the XML response
-  // and that 'picture > medium' and 'email' are the correct paths to the photo URLs and email addresses
-  personas.each(function() {
-    var fotoUrl = $(this).find("picture > medium").text();
-    var email = $(this).find("email").text();
-    fotos.push(fotoUrl);
-    correos.push(email);
-  });
 
-  var tarjetas = $(".frontFace");
+  for(let i = 0; i<2; i++){
+    for(let j = 0; j<= personas.length-2; j++){
 
-  for (let i =  0; i < tarjetas.length; i++) {
-    $(tarjetas[i]).attr("src", fotos[i]);
-    $(tarjetas[i]).attr("title", correos[i]);
+      fotos.push(personas[j].getElementsByTagName("medium")[0].textContent);
+    }
+  }
+  let tarjetas = document.getElementsByClassName("frontFace");
+
+  for(let i = 0; i <= fotos.length -1; i++){
+    tarjetas[i].src = fotos[i];
   }
 }
-
 
 let cards = $(".memoryCard");
 
@@ -67,45 +44,31 @@ let blockCard = false;
 let frsCard;
 let scdCard;
 
-// Assuming blockCard and hasFlipCard are defined elsewhere in your code
-// Also assuming disableCard and unflipCards are defined elsewhere in your code
-
-// Define frsCard and scdCard outside of the function so they persist across calls
-
-
-// Attach the click event handler to .memoryCard elements
  let voltear = $(".memoryCard").on("click", function() {
-  // Check if blockCard is true
   if (blockCard) {
     return;
   }
 
-  // Check if the clicked card is the first card
   if ($(this)[0] === frsCard) {
     return;
   }
 
-  // Add the 'flip' class to the clicked card
   $(this).addClass("flip");
 
-  // If there is no second card yet, set it and exit
   if (!hasFlipCard) {
     hasFlipCard = true;
     frsCard = $(this);
     return;
   }
 
-  // Set the second card and proceed to check for a match
   scdCard = $(this);
   checkForMatch();
 });
 
 function checkForMatch() {
-  // Use .data() to get the 'lenguaje' data attribute
   var frsCardLenguaje = frsCard.data('lenguaje');
   var scdCardLenguaje = scdCard.data('lenguaje');
 
-  // Compare the 'lenguaje' attributes
   if (frsCardLenguaje === scdCardLenguaje) {
     disableCard();
     return true;
@@ -137,12 +100,7 @@ function resetBoard() {
   blockCard = null;
 }
 
-// (function shuffle() {
-//   cards.forEach((card) => {
-//     let posRamdom = Math.floor(Math.random() * 12);
-//     card.style.order = posRamdom;
-//   });
-// })();
+
 
 
 (function shuffle() {

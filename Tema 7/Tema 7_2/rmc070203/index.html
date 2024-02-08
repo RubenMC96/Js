@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>rmc0704</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>        
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+
 </head>
 <body>
     <h1>Datos de los equipos de la liga</h1>
@@ -13,30 +16,21 @@
             <option value="0">Seleccione un equipo</option>
         </select>
     </div>
-    <table border="1px" id="datos">
-        <tr>
-            <th>Datos del equipo</th>
-        </tr>
-        <tr>
-            <td>Nombre</td>
-            <td id = nombre></td>
-        </tr>
-        <tr>
-            <td>Paridos jugados</td>
-            <td id = PJ></td>
-        </tr>
-        <tr>
-            <td>Partidos ganados</td>
-            <td id = PG></td>
-        </tr>
-        <tr>
-            <td>Partidos perdidos</td>
-            <td id = PP></td>
-        </tr>
-        <tr>
-            <td>Partidos empatados</td>
-            <td id = PE></td>
-        </tr>
-    </table>
+    
+    <h1>Datos del equipo</h1>
+    <div>
+        <ul>
+            <li id = nombreEquipo></li>
+            <li id = nombre></li>
+            <li id = PJugados></li>
+            <li id = PJ></li>
+            <li id = PGanados></li>
+            <li id = PG></li>
+            <li id = PPerdidos></li>
+            <li id = PP></li>
+            <li id = PEmpatados></li>
+            <li id = PE></li>
+        </ul>
+    </div>
 </body>
 </html>
