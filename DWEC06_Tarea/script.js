@@ -1,73 +1,95 @@
-window.addEventListener("load", iniciar, false);
 
 
+window.addEventListener("load", crearZonaDibujo, true);
 
+const zonaDibujo = document.querySelector("#zonadibujo");
+const coloresPaleta = document.querySelectorAll("#paleta tr:first-child td"); //los td del primer hijo tr (si no, pilla también el td del estado del pincel)
+const textoEstadoPincel = document.querySelector("#textoEstadoPincel");
 
+let estadoPincel = false;
+let colorSeleccionado;
 
+function crearZonaDibujo() {
 
-function iniciar(){
+  let numeroLineas = 30;
+  let numeroColumnas = 30;
+  let anchoCelda = 10;
+  let altoCelda = 10;
 
+  let tabla = document.createElement("table");
+  tabla.id = "tablaNueva";
 
-    let zonadibujo = document.getElementById("zonadibujo");
-    let tabla = document.createElement("table");
-    tabla.classList.add("tabla");
-    for(let i = 1 ; i <= 30; i++){
+  for (let i = 1; i <= numeroLineas; i++) {
+    let fila = document.createElement("tr");
 
-        let fila = document
-        .createElement("tr");
-        fila.classList.add("fila");
-        for(let j = 1; j <= 30; j++){
+    for (let j = 1; j <= numeroColumnas; j++) {
+      let celda = document.createElement("td");
 
-
-            let celda = document.createElement("td");
-            celda.classList.add("celda");
-            fila.appendChild(celda);
-        }
-        tabla.appendChild(fila);
+      celda.style.width = anchoCelda + "px";
+      celda.style.height = altoCelda + "px";
+      fila.appendChild(celda);
     }
-    zonadibujo.appendChild(tabla);
 
+    tabla.appendChild(fila);
+  }
 
+  zonaDibujo.appendChild(tabla);
 
-    
-   
-    // Agregar el controlador de eventos a todas las celdas
-    zonadibujo.addEventListener("click", celdaSelected);
-    zonadibujo.addEventListener("mousedown", ratonPulsado);
-    zonadibujo.addEventListener("mouseover", ratonSobreCelda);
-    zonadibujo.addEventListener("mouseup", ratonDespulsado);
-
-
-    document.getElementsByClassName("color1")[0].addEventListener("click", seleccionarColor , false);
-    document.getElementsByClassName("color2")[0].addEventListener("click", seleccionarColor , false);
-    document.getElementsByClassName("color3")[0].addEventListener("click", seleccionarColor , false);
-    document.getElementsByClassName("color4")[0].addEventListener("click", seleccionarColor , false);
-    document.getElementsByClassName("color5")[0].addEventListener("click", seleccionarColor , false);
-    document.getElementsByClassName("color6")[0].addEventListener("click", seleccionarColor , false);
-
-    // let paleta = document.querySelectorAll('.paleta tr:first-child td');
-
-    // let colorSelected;
-
-    // paleta.forEach((color) => {
-        
-    //     color.addEventListener("click", function(){
-    //         colorSelected.classList.add(color.className);
-    //         color.classList("seleccionado");
-    //     });
-    // });
-
-
-    let isMouseDown = false;
+  inicio();
 }
 
 
+function inicio(){
+  coloresPaleta.forEach(color => {
+    color.addEventListener("click", asignarColorPincel);
+  })
+}
 
-// letiable para rastrear si el ratón está presionado
+function asignarColorPincel(event){    
+  
+  if(estadoPincel){
+        estadoPincel = !estadoPincel;
+        textoEstadoPincel.innerHTML = "PINCEL DESACTIVADO";   
+  }
 
-   
+  coloresPaleta.forEach(color => {
+    color.classList.remove("seleccionado")   
+  });
+
+  colorSeleccionado = event.target.className;
+
+  event.target.classList.add("seleccionado");
+
+  let celdas = document.querySelectorAll("#tablaNueva td");
+    celdas.forEach(celda => {
+    celda.addEventListener("click", asignarEstadoPincel, true);
+  })
+}
+
+
+function asignarEstadoPincel(){
+
+  let celdas = document.querySelectorAll("#tablaNueva td");
+  estadoPincel = !estadoPincel;
+
+  if(estadoPincel){
+      textoEstadoPincel.innerHTML = "PINCEL ACTIVADO";   
+      celdas.forEach(celda => {
+      celda.addEventListener("mouseover", pintar, true);
+    })
+  }
+
+  else{
+    textoEstadoPincel.innerHTML = "PINCEL DESACTIVADO";
+  }
  
+}
 
+function pintar(event) {
+  if (estadoPincel) {
+    event.target.classList.add(colorSeleccionado);
+  }
+}
 
 
 

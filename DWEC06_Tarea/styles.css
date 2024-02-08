@@ -1,28 +1,41 @@
-.tabla{
-	border: 2px solid black;
-}
-.celda{
-	width: 10px;
-	height:10px;
-	margin: 0px;
-	padding: 0px;
+
+table{
+	width: 500px;
 	border: 1px solid black;
 }
+
+td , tr{
+	border: 1px solid black;
+}
+
+#tablaNueva tr {
+	border: 1px black solid;
+}
+
+#tablaNueva td {
+	border: 1px black solid;
+}
+
 .color1 {
 	background-color: #FF0;
 }
+
 .color2 {
 	background-color: #0F0;
 }
+
 .color3 {
 	background-color: #000;
 }
+
 .color4 {
 	background-color: #F00;
 }
+
 .color5 {
 	background-color: #06C;
 }
+
 .color6 {
 	background-color: #FFF;
 }
