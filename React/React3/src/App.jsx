@@ -1,10 +1,11 @@
 import { useState } from 'react'
+import './App.css'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
-import Football from './Football'
-import Gol from './Gol'
-import Garage from './Garage'
+import MyForm2 from "./MyForm2"
+
+
+
 
 const listaMarcas = ['Ford', 'BMW', 'Audi'];
 function App() {
@@ -12,6 +13,7 @@ function App() {
 
   return (
     <>
+    
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -19,10 +21,14 @@ function App() {
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
-        <Football/>
-        <Gol isGoal = {true}/>
-        <Garage cars = {listaMarcas}/>
+        {/* <Football/> */}
+        {/* <Gol isGoal = {true}/> */}
+        {/* <Garage cars = {listaMarcas}/> */}
+
+        <MyForm2/>
       </div>
+
+
     </>
   )
 }
