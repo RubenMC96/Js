@@ -3,7 +3,7 @@
 window.addEventListener("load", crearZonaDibujo, true);
 
 const zonaDibujo = document.querySelector("#zonadibujo");
-const coloresPaleta = document.querySelectorAll("#paleta tr:first-child td"); //los td del primer hijo tr (si no, pilla también el td del estado del pincel)
+const coloresPaleta = document.querySelectorAll("#paleta tr:first-child td");
 const textoEstadoPincel = document.querySelector("#textoEstadoPincel");
 
 let estadoPincel = false;
