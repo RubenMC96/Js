@@ -1,0 +1,14 @@
+[
+    {
+        "texto" : "Cocinar",
+        "realizada" : true
+    },
+     {
+        "texto" : "Poner la mesa",
+        "realizada" : false
+    },
+    {
+        "texto" : "Lavar los platos",
+        "realizada" : false
+    }
+]
