@@ -10,6 +10,12 @@ function ListTareas(){
        setTareas(tareasJson);
     }, []);
 
+    const chekear = (index) =>{
+        let newList = [...tareas];
+        newList[index].realizada = !newList[index].realizada;
+        setTareas (newList)
+        }
+
     return(
             <div>
             {tareas.map((tarea, index) => (
@@ -20,7 +26,9 @@ function ListTareas(){
                     <div>
                         <Tarea texto = {tarea.texto}
                                 realizada = {tarea.realizada}
-                                key={index}/>
+                                key={index}
+                                funcionActualizar = {()=>{chekear(index)}}
+                                 />
                         
                     </div>
 
