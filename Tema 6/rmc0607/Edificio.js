@@ -1,11 +1,11 @@
 export default class Edificio {
   constructor(calle, numero, cp) {
-    this._calle = calle;
-    this._numero = numero;
-    this._cp = cp;
-    this._plantas = [];
+    this.calle = calle;
+    this.numero = numero;
+    this.cp = cp;
+    this.plantas = [];
     console.log(
-      `Construido nuevo edificio en calle: ${this._calle}, nº: ${this._numero}, CP: ${this._cp}.`
+      `Construido nuevo edificio en calle: ${this.calle}, nº: ${this.numero}, CP: ${this.cp}.`
     );
   }
 
@@ -15,7 +15,7 @@ export default class Edificio {
         for(let j = 0; j < numPuertas; j++) {
             planta.puertas.push(null);
         }
-        this._plantas.push(planta);
+        this.plantas.push(planta);
     }
   }
 
@@ -33,38 +33,32 @@ export default class Edificio {
   }
 
   imprimeCalle() {
-    return this._calle;
+    return this.calle;
   }
 
   imprimeNumero() {
-    return this._numero;
+    return this.numero;
   }
 
   imprimeCp() {
-    return this._cp;
+    return this.cp;
   }
 
    obtenerNombreCalle(){
-    return this._calle;
+    return this.calle;
   }
 
   obtenerNumeroPlantas(){
-    return this._plantas[numPlanta - 1];
+    return this.plantas.length;
   }
 
   obtenerPuertasPorPlanta(numPlanta) {
-    return this._plantas[numPlanta - 1];
+    return this.plantas[numPlanta - 1].length;
     }
 
-
-  /*agregarPropietario(nombre, planta, puerta) {
-    this._plantas[planta].puertas[puerta] = nombre;
-    console.log(`${nombre} es ahora el propietario del piso ${puerta + 1} en la planta ${planta + 1}`);
-  }*/
-
   agregarPropietario(nombre, planta, puerta) {
-    if (this._plantas[planta]) {
-      this._plantas[planta].puertas[puerta] = nombre;
+    if (this.plantas[planta]) {
+      this.plantas[planta].puertas[puerta] = nombre;
       console.log(`${nombre} es ahora el propietario del piso ${puerta + 1} en la planta ${planta + 1}`);
     } 
     else {
@@ -88,9 +82,9 @@ export default class Edificio {
   }
 
   imprimirPropietarios() {
-    for (let i = 0; i < this._plantas.length; i++) {
-        for (let j = 0; j < this._plantas[i].puertas.length; j++) {
-            console.log(`Propietario del piso ${j + 1} de la planta ${i + 1}: ${this._plantas[i].puertas[j]}`);
+    for (let i = 0; i < this.plantas.length; i++) {
+        for (let j = 0; j < this.plantas[i].puertas.length; j++) {
+            console.log(`Propietario del piso ${j + 1} de la planta ${i + 1}: ${this.plantas[i].puertas[j]}`);
         }
     }
 }

@@ -6,7 +6,7 @@ window.addEventListener("load", iniciar, false);
 
 function iniciar(){
 
-    for(let i = 0; i <= arrTareas.length; i++){
+    for(let i = 0; i <= arrTareas.length -1; i++){
         //Creamos la lista de tareas
         let lista = document.getElementsByClassName("lista")[0];
 
@@ -19,8 +19,8 @@ function iniciar(){
         //Creamos la linea de texto
         let elemento = document.createElement("li");
         tabla.appendChild(elemento);
-        let texto = arrTareas[i]._texto
-        ;
+        let texto = arrTareas[i]._texto;
+
         let linea = document.createElement("span");
         //Asignamos el texto a su span
         linea = document.createTextNode(texto);
@@ -31,7 +31,7 @@ function iniciar(){
         let realizada = document.createElement("input");
         realizada.type = "checkbox";
         realizada.name = "realizada"
-        realizada.checked = i[1];
+        realizada.checked = i[1];//i[1] es: i == (tarea,false) y la pos 1 == false
         tabla.appendChild(realizada);
 
         realizada.addEventListener("change", function(){

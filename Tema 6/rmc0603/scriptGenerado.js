@@ -1,5 +1,5 @@
 window.addEventListener("load", iniciar, false);
-
+//Este script genera ekl formualario, pero no lo gestiona
 
 function iniciar(){
 
@@ -13,14 +13,14 @@ function iniciar(){
     //Generamos el primer hijo de formulario
     formulario.appendChild(nombreLabel);
 
-
+    //Generamos el input para nombre
     let nombre = document.createElement("input");
     nombre.type = "text";
     nombre.id = "nombre";
     nombre.className = "nombre";
     nombre.placeholder = "Nombre del disco";
     nombre.maxlength="20";
-    nombre.pattern="^[\s\S]{1,20}$";
+    nombre.pattern="^[\s\S]{1,20}$";//Esta regExt es una clase de carácter que coincide con cualquier carácter, incluidos los espacios en blanco y los que no son espacios en blanco. entre 1 y 20 carateres
     formulario.appendChild(nombre);
     
     let nombSalto1 = document.createElement("br");
@@ -44,6 +44,7 @@ function iniciar(){
     grupo.placeholder = "Nombre del grupo";
     grupo.maxlength="20";
     grupo.pattern="^[\s\S]{1,20}$";
+    //title muestra un texto con el hover del raton
     grupo.title = "El nombre del grupo tiene una longitud máxima de 20 caracteres";
     grupo.required = true;
     formulario.appendChild(grupo);
@@ -63,15 +64,13 @@ function iniciar(){
     //Generamos el segundo hijo de formulario
     formulario.appendChild(annoLabel);
 
-
+    
     let anno = document.createElement("input");
-    anno.type = "text";
+    anno.type = "number";
     anno.className = "anno";
     anno.placeholder = "Año de publicación del disco";
-    anno.maxlength="4";
     anno.min = "0";
-    anno.max = "2024"
-    anno.pattern="^[\s\S]{1,20}$";
+    anno.max = new Date().getFullYear();
     anno.title = "El año de publicación tiene que contener 4 dígitos";
     anno.required = true;
     

@@ -4,7 +4,7 @@ import * as arrays from "./arrays.js";
 let discos = [];
 
 document.getElementById("formDisco").addEventListener("enviar", function (e) {
-  e.preventDefault();
+  e.preventDefault();//EL boton a ser un submit hay que anular la funcion por defecto
   let nombre = document.getElementById("nombre").value;
   let grupo = document.getElementById("grupo").value;
   let anno = document.getElementById("anno").value;

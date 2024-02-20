@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equivalencia entre Js y Jquery</title>
+</head>
+<body>
+    <table border="solid" 2px>
+        <thead>
+          <tr>
+            <th>Funcionalidad</th>
+            <th>JavaScript</th>
+            <th>jQuery</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Seleccionar el primer elemento</td>
+            <td>document.querySelector('.selector')</td>
+            <td>$('.selector').first()</td>
+          </tr>
+          <tr>
+            <td>Seleccionar hijos</td>
+            <td>document.querySelector('.selector').children</td>
+            <td>$('.selector').children()</td>
+          </tr>
+          <tr>
+            <td>Seleccionar hermanos</td>
+            <td>Array.from(document.querySelector('.selector').parentNode.children).filter(child => child !== document.querySelector('.selector'))</td>
+            <td>$('.selector').siblings()</td>
+          </tr>
+          <tr>
+            <td>Seleccionar el hermano siguiente</td>
+            <td>document.querySelector('.selector').nextElementSibling</td>
+            <td>$('.selector').next()</td>
+          </tr>
+          <tr>
+            <td>Seleccionar el hermano anterior</td>
+            <td>document.querySelector('.selector').previousElementSibling</td>
+            <td>$('.selector').prev()</td>
+          </tr>
+          <tr>
+            <td>Agregar una clase</td>
+            <td>document.querySelector('.selector').classList.add('nombre-clase')</td>
+            <td>$('.selector').addClass('nombre-clase')</td>
+          </tr>
+          <tr>
+            <td>Verificar si un elemento tiene una clase</td>
+            <td>document.querySelector('.selector').classList.contains('nombre-clase')</td>
+            <td>$('.selector').hasClass('nombre-clase')</td>
+          </tr>
+          <tr>
+            <td>Ocultar un elemento</td>
+            <td>document.querySelector('.selector').style.display = 'none'</td>
+            <td>$('.selector').hide()</td>
+          </tr>
+          <tr>
+            <td>Agregar un oyente de eventos</td>
+            <td>document.querySelector('.selector').addEventListener('click', function)</td>
+            <td>$('.selector').on('click', function)</td>
+          </tr>
+          <tr>
+            <td>Eliminar una clase</td>
+            <td>document.querySelector('.selector').classList.remove('nombre-clase')</td>
+            <td>$('.selector').removeClass('nombre-clase')</td>
+          </tr>
+          <tr>
+            <td>Establecer el valor de un atributo</td>
+            <td>document.querySelector('.selector').setAttribute('atributo', 'valor')</td>
+            <td>$('.selector').attr('atributo', 'valor')</td>
+          </tr>
+          <tr>
+            <td>Obtener el valor de un atributo</td>
+            <td>document.querySelector('.selector').getAttribute('atributo')</td>
+            <td>$('.selector').attr('atributo')</td>
+          </tr>
+          <tr>
+            <td>Establecer el contenido HTML de un elemento</td>
+            <td>document.querySelector('.selector').innerHTML = '<p>Nuevo contenido</p>'</td>
+            <td>$('.selector').html('<p>Nuevo contenido</p>')</td>
+          </tr>
+          <tr>
+            <td>Obtener el contenido HTML de un elemento</td>
+            <td>document.querySelector('.selector').innerHTML</td>
+            <td>$('.selector').html()</td>
+          </tr>
+          <tr>
+            <td>Eliminar un elemento</td>
+            <td>document.querySelector('.selector').remove()</td>
+            <td>$('.selector').remove()</td>
+          </tr>
+          <tr>
+            <td>Agregar un elemento después de otro</td>
+            <td>document.querySelector('.selector').insertAdjacentHTML('afterend', '<div>Nuevo contenido</div>')</td>
+            <td>$('.selector').after('<div>Nuevo contenido</div>')</td>
+          </tr>
+          <tr>
+            <td>Agregar un elemento antes de otro</td>
+            <td>document.querySelector('.selector').insertAdjacentHTML('beforebegin', '<div>Nuevo contenido</div>')</td>
+            <td>$('.selector').before('<div>Nuevo contenido</div>')</td>
+          </tr>
+          <tr>
+            <td>Agregar un elemento al final de otro</td>
+            <td>document.querySelector('.selector').insertAdjacentHTML('beforeend', '<div>Nuevo contenido</div>')</td>
+            <td>$('.selector').append('<div>Nuevo contenido</div>')</td>
+          </tr>
+          <tr>
+            <td>Agregar un elemento al inicio de otro</td>
+            <td>document.querySelector('.selector').insertAdjacentHTML('afterbegin', '<div>Nuevo contenido</div>')</td>
+            <td>$('.selector').prepend('<div>Nuevo contenido</div>')</td>
+          </tr>
+          <tr>
+            <td>Crear un elemento</td>
+            <td>var div = document.createElement('div');</td>
+            <td>var div = $('<div></div>');</td>
+          </tr>
+          <tr>
+            <td>Agregar contenido a un elemento</td>
+            <td>div.textContent = 'Hola mundo';</td>
+            <td>$(div).text('Hola mundo');</td>
+          </tr>
+          <tr>
+            <td>Agregar un elemento al DOM</td>
+            <td>document.body.appendChild(div);</td>
+            <td>$(div).appendTo('body');</td>
+          </tr>
+          <tr>
+            <td>Eliminar un elemento del DOM</td>
+            <td>document.body.removeChild(div);</td>
+            <td>$(div).remove();</td>
+          </tr>
+          <tr>
+            <td>Obtener el valor de un input</td>
+            <td>document.getElementById('inputId').value;</td>
+            <td>$('#inputId').val();</td>
+          </tr>
+          <tr>
+            <td>Establecer el valor de un input</td>
+            <td>document.getElementById('inputId').value = 'nuevo valor';</td>
+            <td>$('#inputId').val('nuevo valor');</td>
+          </tr>
+          <tr>
+            <td>Ejecutar una función cuando se carga la página</td>
+            <td>document.addEventListener('DOMContentLoaded', function() {});</td>
+            <td>$(document).ready(function() {});</td>
+          </tr>
+          <tr>
+            <td>Ejecutar una función cuando se carga una imagen</td>
+            <td>
+              var img = new Image();
+              img.onload = function() {
+                // Código aquí
+              };
+              img.src = 'ruta/a/la/imagen.jpg';
+            </td>
+            <td>
+              $('<img src="ruta/a/la/imagen.jpg">').on('load', function() {
+                // Código aquí
+              });
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      
+</body>
+</html>

@@ -5,7 +5,7 @@
     },
      {
         "texto" : "Poner la mesa",
-        "realizada" : false
+        "realizada" : true
     },
     {
         "texto" : "Lavar los platos",

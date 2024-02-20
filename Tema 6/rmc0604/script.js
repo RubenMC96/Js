@@ -17,13 +17,21 @@ document.getElementById("boton").addEventListener("click", crearBoton, false);
 
 function crearTexto(){
     let nombre = prompt("Indique el nombre del input:");
+
+    let labelNombre = document.createElement("label");
+    labelNombre.for = "texto";
+    labelNombre = document.createTextNode(nombre);
     
     let inputNombre = document.createElement("input");
     inputNombre.type = "text";
+    inputNombre.id = "texto";
     inputNombre.name = nombre;
     confirm(`Se ha creado un input de tipo texto con el nombre de: ${nombre}`);
     let mostrar = document.getElementsByClassName("mostrar")[0];
+    
+    mostrar.appendChild(labelNombre);
     mostrar.appendChild(inputNombre);
+    
     
 }
 function crearPassword(){

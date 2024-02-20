@@ -10,9 +10,25 @@ async function iniciar(){
         equipos = [...json];
         ejecuta();
     }catch(error){
-        alert("Se ha producido un error");
+        alert("Se ha producido un error");//response.status
     }
 }
+/*
+function iniciar() {
+  $.ajax({
+    url: "Equipos.json",
+    method: "GET",
+    dataType: "json",
+    success: function(json) {
+      equipos = [...json];
+      ejecuta();
+    },
+    error: function() {
+      alert("Se ha producido un error");
+    }
+  });
+}
+ */
 
 function ejecuta(){
 

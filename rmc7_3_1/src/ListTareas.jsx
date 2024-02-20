@@ -21,7 +21,7 @@ function ListTareas(){
                         <Tarea texto = {tarea.texto}
                                 realizada = {tarea.realizada}
                                 key={index}/>
-                        <input type="checkbox"></input>
+                        
                     </div>
 
             ))}

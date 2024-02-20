@@ -30,7 +30,7 @@ function cargarXML(xml) {
     }
   }
   let tarjetas = document.getElementsByClassName("frontFace");
-  let emails = document.getElementsByClassName("textEmail"); 
+  //let emails = document.getElementsByClassName("textEmail"); 
 
   for(let i = 0; i <= fotos.length -1; i++){
     tarjetas[i].src = fotos[i];

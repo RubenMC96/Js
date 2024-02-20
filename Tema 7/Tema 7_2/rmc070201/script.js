@@ -56,6 +56,7 @@ let scdCard;
   $(this).addClass("flip");
 
   if (!hasFlipCard) {
+    
     hasFlipCard = true;
     frsCard = $(this);
     return;

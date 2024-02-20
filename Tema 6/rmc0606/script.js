@@ -18,7 +18,7 @@ function iniciar() {
   //let parrafo2 = parrafos[1];
   let span2 = document.createElement("span");
   let texto2 = document.createTextNode(
-    `El texto del segundo parrafo es: ${parrafos[1].textContent}`
+    `El texto del segundo parrafo es: ${parrafos[1].textContent}`//textcontent nos devuelve el contenido
   );
   span2.appendChild(texto2);
   resultados.appendChild(span2);
@@ -57,10 +57,10 @@ function iniciar() {
 
   let span6 = document.createElement("span");
   let numWiki = 0;
-  let regex = /\/wiki\/Municipio/;
+  let regex = /\/wiki\/Municipio/;//RegEx para la url que buscamos
   for (let i = 0; i <= enlaces.length - 1; i++) {
     if (regex.test(enlaces[i].href)) {
-      numWiki++;
+      numWiki++;//Test busca la regex dentro de lo le pases
     }
   }
   let texto6 = document.createTextNode(

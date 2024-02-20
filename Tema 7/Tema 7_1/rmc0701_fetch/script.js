@@ -18,7 +18,7 @@ async function mostrar(){
     clientes = [...json];
     ejecuta();
   }catch(error){
-    alert("Ha ocurrido un error");
+    alert("Ha ocurrido un error");// + response.status
   }
 }
 
