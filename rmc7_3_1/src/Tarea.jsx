@@ -13,6 +13,6 @@ function Tarea({texto, realizada}) {
                 />
             </div>
         )
-   //prueba
+   //prueba.................
 }
 export default Tarea;
