@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foco en el Último Input</title>
+    <script type="text/javascript" src="e02.js" defer></script>
+</head>
+
+<body>
+    <form id="1" action="/ruta_al_servidor" method="post">
+        <!-- Campo de texto -->
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre"><br>
+
+        <!-- Radio button -->
+        <label for="sexo">Sexo:</label><br>
+        <input type="radio" id="masculino" name="sexo" value="masculino">
+        <label for="masculino">Masculino</label>
+        <input type="radio" id="femenino" name="sexo" value="femenino">
+        <label for="femenino">Femenino</label><br>
+
+        <!-- Comentarios -->
+        <label for="comentarios">Comentarios:</label>
+        <input type="text" id="comentarios" name="comentarios"><br>
+
+    </form>
+    <form id="2" action="/ruta_al_servidor" method="post">
+        <!-- Checkbox -->
+        <label for="acepto">Acepto los términos y condiciones:</label>
+        <input type="checkbox" id="acepto" name="acepto"><br>
+
+        <!-- Observaciones -->
+        <label for="observaciones">Observaciones:</label>
+        <input type="text" id="observaciones" name="observaciones"><br>
+        
+        <!-- Botón de envío
+        <input type="submit" value="Enviar"> -->
+    </form>
+
+
+</body>
+
+</html>

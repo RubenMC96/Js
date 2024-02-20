@@ -1,0 +1,16 @@
+{
+    "tareasData": [
+        {
+            "texto": "Tarea1",
+            "realizada": false
+        },
+        {
+            "texto": "Tarea2",
+            "realizada": false
+        },
+        {
+            "texto": "Tarea3",
+            "realizada": false
+        }
+    ]
+}

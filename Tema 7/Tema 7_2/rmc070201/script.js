@@ -2,39 +2,50 @@
 $(document).ready(inicio);
 
 
-function inicio() {
-  let xhr = new XMLHttpRequest();
-  xhr.addEventListener(
-    "readystatechange",
-    function () {
-      if (this.readyState == 4 && this.status == 200) {
-        cargarXML(this);
-      }
-    },
-    false
-  );
+// function inicio() {
+//   let xhr = new XMLHttpRequest();
+//   xhr.addEventListener(
+//     "readystatechange",
+//     function () {
+//       if (this.readyState == 4 && this.status == 200) {
+//         cargarXML(this);
+//       }
+//     },
+//     false
+//   );
 
-  xhr.open("GET","https://randomuser.me/api/?results=6&format=XML",true);
-  xhr.send();
+//   xhr.open("GET","https://randomuser.me/api/?results=6&format=XML",true);
+//   xhr.send();
+// }
+
+function inicio() {
+  $.ajax({
+    url: "https://randomuser.me/api/?results=6&format=XML",
+    type: "GET",
+    dataType: "xml",
+    success: cargarXML,
+    error: function(jqXHR, textStatus, errorThrown) {
+      console.error(textStatus, errorThrown);
+    }
+  });
 }
 
 function cargarXML(xml) {
-  let documentoXML = xml.responseXML;
-  let personas = documentoXML.getElementsByTagName("results");
+  let personas = $(xml).find("results");
   let fotos = [];
+  let correos = [];
 
-
-  for(let i = 0; i<2; i++){
-    for(let j = 0; j<= personas.length-2; j++){
-
-      fotos.push(personas[j].getElementsByTagName("medium")[0].textContent);
+  for(let i =  0; i <  2; i++){
+    for(let j =  0; j < personas.length -1; j++){//Es necesario el -1 porque el api tiene un ultimo elemento vacio
+      fotos.push($(personas[j]).find("medium").text());
+      correos.push($(personas[j]).find("email").text());
     }
   }
-  let tarjetas = document.getElementsByClassName("frontFace");
 
-  for(let i = 0; i <= fotos.length -1; i++){
-    tarjetas[i].src = fotos[i];
-  }
+  $(".frontFace").each(function(index) {
+    $(this).attr("src", fotos[index]);
+    $(this).attr("title", correos[index]);
+  });
 }
 
 let cards = $(".memoryCard");
@@ -46,11 +57,11 @@ let scdCard;
 
  let voltear = $(".memoryCard").on("click", function() {
   if (blockCard) {
-    return;
+    return true;
   }
 
   if ($(this)[0] === frsCard) {
-    return;
+    return true;
   }
 
   $(this).addClass("flip");
@@ -59,7 +70,7 @@ let scdCard;
     
     hasFlipCard = true;
     frsCard = $(this);
-    return;
+    return true;
   }
 
   scdCard = $(this);

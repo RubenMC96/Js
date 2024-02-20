@@ -109,3 +109,5 @@ function resetBoard() {
 Para ejecutar la funcion de forma inmediata hay que envolver la funcion entre paréntesis y despues ejecutarla con la llamada ();*/
 
 cards.forEach((card) => card.addEventListener("click", voltear));
+
+

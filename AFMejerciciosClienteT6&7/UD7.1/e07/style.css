@@ -1,0 +1,8 @@
+#contenedorBotones {
+    display: flex;
+    justify-content: space-between;
+}
+
+#contenedorBotones button {
+    width: 100px; /* Ajusta esto según tus necesidades */
+}

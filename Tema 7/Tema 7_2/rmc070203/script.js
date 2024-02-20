@@ -27,7 +27,7 @@ function ejecuta(){
     let seleccion = $("#equipos");
     let opcion;
     for(let i = 0; i<= equipos.length -1; i++){
-        opcion = document.createElement("option");
+        opcion = document.createElement("option");//Deberia de ser (<option/>)
         opcion.value = i;
         opcion.text = equipos[i].nombre;
         seleccion.append(opcion);

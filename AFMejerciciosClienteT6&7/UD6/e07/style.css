@@ -1,0 +1,22 @@
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    background-color: yellow;
+   }
+   
+   th, td {
+    border: 1px solid black;
+   }
+   
+   th {
+    background-color: gray;
+   }
+   
+   td {
+    background-color: yellow;
+   }
+   
+   tr:first-child th {
+    background-color: gray;
+   }
+   

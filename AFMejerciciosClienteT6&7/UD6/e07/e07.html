@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificaciones tarea UD4</title>
+    <link href="style.css" rel="stylesheet">
+    <script type="module" src="e07.js" defer></script>
+</head>
+
+<body>
+    <form id="edificioForm">
+        <label for="calle">Calle:</label>
+        <input type="text" id="calle" required><br>
+        <label for="numero">Número:</label>
+        <input type="number" id="numero" required><br>
+        <label for="codPostal">Código Postal:</label>
+        <input type="text" id="codPostal" required><br>
+        <label for="numPlantas">Número de Plantas:</label>
+        <input type="number" id="numPlantas" required><br>
+        <label for="numPuertas">Número de Puertas:</label>
+        <input type="number" id="numPuertas" required><br>
+
+        <input type="submit" value="Crear Edificio">
+    </form>
+    <form id="listaEdificiosForm"></form><br>
+    <div>
+        <label for="planta">Planta:</label>
+        <input type="number" id="planta" required><br>
+        <label for="puerta">Puerta:</label>
+        <input type="number" id="puerta" required><br>
+        <label for="propietario">Propietario:</label>
+        <input type="text" id="propietario" required><br>
+        <button id="modificarPropietarioButton">Modificar Propietario</button>
+    </div><br>
+    <form id="mostrarEdificioForm">
+        <label for="edificioSeleccionado">Seleccione un edificio:</label>
+        <select id="edificioSeleccionado"></select>
+        <button type="button" id="mostrarEdificioButton">Mostrar Edificio</button>
+     </form>
+     <div id="informacionEdificio"></div>
+     <div id="tablaEdificio"></div>
+
+
+</body>
+
+</html>

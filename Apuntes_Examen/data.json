@@ -1,0 +1,19 @@
+{
+    "objetosData": [
+        {
+            "atributo1": "objeto1",
+            "atributo2": 10,
+            "atributo3": 1
+        },
+        {
+            "atributo1": "objeto2",
+            "atributo2": 10,
+            "atributo3": 1
+        },
+        {
+            "atributo1": "objeto3",
+            "atributo2": 10,
+            "atributo3": 1
+        }
+    ]
+}

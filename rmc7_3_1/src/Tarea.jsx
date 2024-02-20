@@ -3,19 +3,7 @@ import React, {useState, useEffect} from "react";
 import './Tarea.css'
 
 
-
-
-
-
-
-
-
 function Tarea({texto, realizada,key, funcionActualizar}) {
-
-
-
-
-
 
   return ( <div>
                 <span className={realizada? ".claseTachado" : ""}>{texto}</span>

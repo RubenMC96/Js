@@ -1,0 +1,39 @@
+{
+    "equiposData": [
+        {
+            "nombre": "Equipo Ficticio 1",
+            "partidosJugados": 10,
+            "partidosGanados": 7,
+            "partidosPerdidos": 2,
+            "partidosEmpatados": 1
+        },
+        {
+            "nombre": "Equipo Ficticio 2",
+            "partidosJugados": 10,
+            "partidosGanados": 6,
+            "partidosPerdidos": 3,
+            "partidosEmpatados": 1
+        },
+        {
+            "nombre": "Equipo Ficticio 3",
+            "partidosJugados": 10,
+            "partidosGanados": 8,
+            "partidosPerdidos": 1,
+            "partidosEmpatados": 1
+        },
+        {
+            "nombre": "Equipo Ficticio 4",
+            "partidosJugados": 10,
+            "partidosGanados": 9,
+            "partidosPerdidos": 0,
+            "partidosEmpatados": 1
+        },
+        {
+            "nombre": "Equipo Ficticio 5",
+            "partidosJugados": 10,
+            "partidosGanados": 10,
+            "partidosPerdidos": 0,
+            "partidosEmpatados": 0
+        }
+    ]
+}
