@@ -1,0 +1,142 @@
+[
+        {
+            "nombre": "Lewis Hamilton",
+            "equipo": "Mercedes AMG",
+            "numero": 44,
+            "nacionalidad": "UK",
+            "campeonatos": 7
+        },
+        {
+            "nombre": " George Russell",
+            "equipo": "Mercedes AMG",
+            "numero": 63,
+            "nacionalidad": "UK",
+            "campeonatos": 0
+        },
+        {
+            "nombre": "Max Verstappen",
+            "equipo": "Red Bull",
+            "numero": 1,
+            "nacionalidad": "Holanda",
+            "campeonatos": 3
+        },
+        {
+            "nombre": "Checo Pérez",
+            "equipo": "Red Bull",
+            "numero": 11,
+            "nacionalidad": "México",
+            "campeonatos": 0
+        },
+        {
+            "nombre": "Lando Norris",
+            "equipo": "McLaren",
+            "numero": 4,
+            "nacionalidad": "UK",
+            "campeonatos": 0
+        },
+        {
+            "nombre": "Oscar Piastri",
+            "equipo": "McLaren",
+            "numero": 81,
+            "nacionalidad": "Australia",
+            "campeonatos": 0
+        },
+        {
+            "nombre": "Fernando Alonso",
+            "equipo": "Aston Martin",
+            "numero": 14,
+            "nacionalidad": "España",
+            "campeonatos": 2
+        },
+        {
+            "nombre": "Lance Stroll",
+            "equipo": "Aston Martin",
+            "numero": 18,
+            "nacionalidad": "Canadá",
+            "campeonatos": 0
+        },  
+        {
+            "nombre": "Alex Albon",
+            "equipo": "Willians",
+            "numero": 23,
+            "nacionalidad": "Tailandia",
+            "campeonatos": 0
+        },
+        {
+            "nombre": "Logan Sargeant",
+            "equipo": "Willians",
+            "numero": 2,
+            "nacionalidad": "EEUU",
+            "campeonatos": 0
+        },
+        {
+            "nombre": "Daniel Richiardo",
+            "equipo": "Visa Cash App RB",
+            "numero": 3,
+            "nacionalidad": "Australia",
+            "campeonatos": 0
+        },
+        {
+            "nombre": "Yuki Tsunoda",
+            "equipo": "Visa Cash App RB",
+            "numero": 22,
+            "nacionalidad": "Japón",
+            "campeonatos": 0
+        },
+        {
+            "nombre": "Pierre Gasly",
+            "equipo": "Alpine",
+            "numero": 10,
+            "nacionalidad": "Francia",
+            "campeonatos": 0
+        },
+        {
+            "nombre": "Esteban Ocon",
+            "equipo": "Alpine",
+            "numero": 31,
+            "nacionalidad": "Francia",
+            "campeonatos": 0
+        },
+        {
+            "nombre": "Carlos Sainz",
+            "equipo": "Ferrari",
+            "numero": 55,
+            "nacionalidad": "España",
+            "campeonatos": 0
+        },
+        {
+            "nombre": "Charles Leclerc",
+            "equipo": "Ferrari",
+            "numero": 16,
+            "nacionalidad": "Monaco",
+            "campeonatos": 0
+        },
+        {
+            "nombre": "Kevin Magnussen",
+            "equipo": "Hass",
+            "numero": 20,
+            "nacionalidad": "Dinamarca",
+            "campeonatos": 0
+        },
+        {
+            "nombre": "Nico Hulkenberg",
+            "equipo": "Hass",
+            "numero": 27,
+            "nacionalidad": "Alemania",
+            "campeonatos": 0
+        },
+        {
+            "nombre": "Valtteri Bottas",
+            "equipo": "Sauber",
+            "numero": 77,
+            "nacionalidad": "Finlandia",
+            "campeonatos": 0
+        },
+        {
+            "nombre": "Guanyu Zhou",
+            "equipo": "Sauber",
+            "numero": 24,
+            "nacionalidad": "China",
+            "campeonatos": 0
+        }
+]

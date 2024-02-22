@@ -6,8 +6,7 @@ import './Tarea.css'
 function Tarea({texto, realizada,key, funcionActualizar}) {
 
   return ( <div>
-                <span className={realizada? ".claseTachado" : ""}>{texto}</span>
-                {/* <input type="checkbox" checked={realizada} onClick={(e)=>{ e.target.checked = !e.target.checked}}></input> */}
+                <span className={realizada? 'claseTachado' : ''}>{texto}</span>
                 <input
                   type="checkbox"
                   checked={realizada}
